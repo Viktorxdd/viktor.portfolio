@@ -7,8 +7,8 @@ Personlig portfolio-hemsida för en student. Syftet är att presentera mig som p
 - **Ingen backend.** Sidan är helt statisk. Backend-kunskaper visas i projekten som presenteras, inte i själva portfolion.
 - **Innehåll ligger som data i repot.** Att lägga till ett projekt = lägga till data + bilder och pusha.
 - **Två språk:** svenska och engelska. Allt innehåll, inklusive projektbeskrivningar, finns i båda.
-- **Ljust och mörkt läge.**
-- **Designen är INTE bestämd.** Bygg struktur och funktionalitet, men fatta inga visuella designbeslut (färgpalett, typsnitt, layoutstil, animationer). Använd minimal, neutral styling tills designen är klar.
+- **Endast mörkt läge.** Ingen temaväxling, ingen `ThemeProvider`. Beslutat 2026-10-06 – terminal-känslan passar bäst som enda läge, och det förenklar både design och kod.
+- **Design: terminal-inspirerad.** Monospace-font (JetBrains Mono), mörk bakgrund, grön accentfärg, inga kort/skuggor/gradients. Se "Design-tokens" nedan för exakta värden. Detaljer (mikro-animationer, exakta nyanser på enskilda element) är fortfarande öppna – fråga innan du bestämmer dem.
 
 ## Tech stack
 
@@ -38,7 +38,6 @@ Personlig portfolio-hemsida för en student. Syftet är att presentera mig som p
 ## Globala kontroller (uppe i hörnet, på alla sidor)
 
 - **Språkväxlare:** svensk och engelsk flagga. Varje knapp ska ha `aria-label` (t.ex. "Byt till engelska" / "Switch to Swedish") och markera aktivt språk med `aria-pressed`.
-- **Temaväxlare:** ljust/mörkt läge, med `aria-label`.
 
 ## Språk (i18n)
 
@@ -60,13 +59,23 @@ export const translations = { sv, en };
 - Innehållsdata använder typen `Localized<T> = { sv: T; en: T }` för alla översatta fält.
 - Uppdatera `document.title` per sida och språk.
 
-## Tema (dark/light)
+## Design-tokens
 
-- `ThemeProvider` (React Context) med `theme: "light" | "dark"`.
-- Förval: sparat värde i `localStorage`, annars `prefers-color-scheme`.
-- Sätt `data-theme` på `<html>`.
-- Alla färger definieras som CSS-variabler i `:root` och `[data-theme="dark"]`. Inga hårdkodade färger i komponenter.
-- Undvik "blink" av fel tema vid sidladdning (sätt `data-theme` med ett litet inline-script i `index.html` innan React laddas).
+Endast mörkt läge (se "Viktiga beslut") – ingen `[data-theme]`-växling, bara ett fast set CSS-variabler i `:root`. Definieras i `src/presentation/styles/tokens.css` och importeras en gång i `main.tsx`. Inga hårdkodade färger eller typsnitt i komponenter – allt går via `var(--...)`.
+
+```css
+:root {
+  --color-bg: #0b0f0d;
+  --color-text: #d9ded9;
+  --color-muted: #6f7d74;
+  --color-accent: #4ade80;
+  --color-border: #1f2b24;
+
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+```
+
+`JetBrains Mono` laddas via Google Fonts `<link>` i `index.html` (ingen npm-fontpackage).
 
 ## Datamodell
 
@@ -128,15 +137,14 @@ src/
       Navbar/
         Navbar.tsx
         Navbar.module.css
-      ThemeToggle/
-        ThemeToggle.tsx
-        ThemeToggle.module.css
+      LanguageToggle/
+        LanguageToggle.tsx
+        LanguageToggle.module.css
       ...
     styles/             # globala stilar: CSS-variabler (tema, typografi), inget komponentspecifikt
   logic/
     i18n/         # LanguageProvider, useLanguage, translations.ts
-    theme/        # ThemeProvider, useTheme
-    hooks/        # useProjects, useExperience, useTechStack ...
+    hooks/        # useProjects, useExperience, useTechStack, useTypewriter ...
   data/           # projects.ts, experience.ts, techStack.ts, profile.ts + åtkomstfunktioner
   types/          # delade typer (Project, Experience, Localized ...)
 public/
@@ -153,7 +161,7 @@ Använd alltid skillen `handledare`: fråga när något är oklart, lägg fram a
 
 ## Kvalitetskrav
 
-- Tillgänglighet: semantisk HTML, tangentbordsnavigering, synlig fokusmarkering, `alt`-texter, tillräcklig kontrast i båda teman.
+- Tillgänglighet: semantisk HTML, tangentbordsnavigering, synlig fokusmarkering, `alt`-texter, tillräcklig kontrast.
 - Responsiv, fungerar bra på mobil.
 - Bilder lazy-loadas (`loading="lazy"`) utom de som syns direkt.
 - Inga TypeScript-fel eller ESLint-varningar.
@@ -168,7 +176,7 @@ Använd alltid skillen `handledare`: fråga när något är oklart, lägg fram a
 
 1. Sätt upp Vite + React + TS, ESLint, Prettier, mappstruktur.
 2. Routing med alla sidor som tomma skal + 404.
-3. `LanguageProvider`, `ThemeProvider` och växlarna i hörnet.
+3. Design-tokens (`tokens.css`) och `LanguageProvider` + språkväxlaren i hörnet.
 4. Typer och platshållardata i `src/data/`.
 5. Hero-sidan med centrerad navigation.
 6. Undersidorna med navigation, renderade från data.
