@@ -1,6 +1,8 @@
+import styles from './ExperiencePage.module.css'
+
 function ExperiencePage() {
   return (
-    <main>
+    <main className={styles.page}>
       <h1>Experience page</h1>
     </main>
   )

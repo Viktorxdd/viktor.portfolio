@@ -14,7 +14,7 @@ Personlig portfolio-hemsida för en student. Syftet är att presentera mig som p
 
 - React 19 + TypeScript + Vite
 - React Router (v7, import från `react-router`)
-- Styling: **ej bestämt** (Tailwind CSS eller CSS Modules). Använd vanlig CSS med CSS-variabler tills vidare.
+- Styling: **CSS Modules**, co-located med varje komponent/sida (se Mappstruktur). Globala CSS-variabler (tema, typografi) i `src/presentation/styles/`.
 - ESLint + Prettier
 - Hosting: Cloudflare Pages (prel.), automatisk deploy vid push till `main`
 - Inga andra beroenden utan att fråga först.
@@ -116,9 +116,23 @@ Beroenden går bara nedåt: presentation → logik → data. Se skillen `handled
 ```
 src/
   presentation/
-    pages/        # en komponent per route
-    components/   # återanvändbara komponenter (LanguageToggle, ThemeToggle, Nav ...)
-    styles/       # globala stilar, CSS-variabler
+    pages/              # en mapp per route
+      HeroPage/
+        HeroPage.tsx
+        HeroPage.module.css
+      AboutPage/
+        AboutPage.tsx
+        AboutPage.module.css
+      ...
+    components/         # en mapp per återanvändbar komponent
+      Navbar/
+        Navbar.tsx
+        Navbar.module.css
+      ThemeToggle/
+        ThemeToggle.tsx
+        ThemeToggle.module.css
+      ...
+    styles/             # globala stilar: CSS-variabler (tema, typografi), inget komponentspecifikt
   logic/
     i18n/         # LanguageProvider, useLanguage, translations.ts
     theme/        # ThemeProvider, useTheme
@@ -128,6 +142,10 @@ src/
 public/
   images/         # projektbilder (WebP/AVIF, komprimerade)
 ```
+
+**Regel:** varje komponent/sida äger sin egen `.module.css` i samma mapp. Ingen delad/global CSS för komponentspecifik styling – bara tema- och typografivariabler får ligga globalt i `presentation/styles/`.
+
+**Responsivitet:** mobile-first. Skriv basstilen för minsta skärm, bygg upp med `min-width`-media queries (inte `max-width`) för tablet/desktop. Riktvärden tills design är klar: `768px` (tablet), `1024px` (desktop) – samma brytpunkter i alla komponenter.
 
 ## Arbetssätt
 
@@ -159,7 +177,6 @@ Använd alltid skillen `handledare`: fråga när något är oklart, lägg fram a
 
 ## Öppna frågor – bestäm inte själv, fråga
 
-- Styling: Tailwind eller CSS Modules
 - All visuell design
 - Animationer
 - Nedladdningsbart CV
