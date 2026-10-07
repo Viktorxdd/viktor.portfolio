@@ -92,6 +92,12 @@ const NAV_TOTAL_LENGTH =
 
 const INTRO_TOTAL_LENGTH = CODE_TOTAL_LENGTH + NAV_TOTAL_LENGTH
 
+// Plain module-level flag, not React state: the module is only evaluated
+// once per real page load, so this survives client-side route changes
+// (About back to Hero via react-router) but resets on an actual browser
+// reload — exactly the "once per visit, not once ever" behavior we want.
+let hasPlayedIntro = false
+
 function sliceSegments(segments: Segment[], revealedCount: number): Segment[] {
   const sliced: Segment[] = []
   let remaining = revealedCount
@@ -114,22 +120,28 @@ function toneClassName(tone: Segment['tone']) {
 }
 
 function HeroPage() {
+  const [skipIntro] = useState(hasPlayedIntro)
+
   const { count: revealedCount, done: introDone } = useRevealCount({
-    total: INTRO_TOTAL_LENGTH,
+    total: skipIntro ? 0 : INTRO_TOTAL_LENGTH,
   })
-  const [showFinal, setShowFinal] = useState(false)
-  const [liveStatusEnabled, setLiveStatusEnabled] = useState(false)
+  const [showFinal, setShowFinal] = useState(skipIntro)
+  const [liveStatusEnabled, setLiveStatusEnabled] = useState(skipIntro)
 
   useEffect(() => {
-    if (!introDone) {
+    hasPlayedIntro = true
+  }, [])
+
+  useEffect(() => {
+    if (skipIntro || !introDone) {
       return
     }
     const timeout = setTimeout(() => setShowFinal(true), REVEAL_HOLD_MS)
     return () => clearTimeout(timeout)
-  }, [introDone])
+  }, [skipIntro, introDone])
 
   useEffect(() => {
-    if (!showFinal) {
+    if (skipIntro || !showFinal) {
       return
     }
     const timeout = setTimeout(
@@ -137,7 +149,7 @@ function HeroPage() {
       LIVE_STATUS_DELAY_MS,
     )
     return () => clearTimeout(timeout)
-  }, [showFinal])
+  }, [skipIntro, showFinal])
 
   const status = useTypewriter({
     words: STATUS_WORDS,
