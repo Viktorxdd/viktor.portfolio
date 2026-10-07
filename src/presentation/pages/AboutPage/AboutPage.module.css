@@ -1,6 +1,128 @@
 .page {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: 640px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prompt {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--font-size-xs);
+}
+
+.accent {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--font-size-h1);
+}
+
+.profileRow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .profileRow {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.profilePlaceholder {
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  display: flex;
   align-items: center;
-  padding: 1rem;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: var(--font-size-xs);
+}
+
+.bio {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+}
+
+.sectionHeading {
+  margin: 1.5rem 0 0;
+  font-size: var(--font-size-h2);
+}
+
+.hobbySection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 50vh;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .hobbySection {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.hobbyImagePlaceholder {
+  flex-shrink: 0;
+  width: 100%;
+  height: 10rem;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: var(--font-size-xs);
+}
+
+@media (min-width: 768px) {
+  .hobbyImagePlaceholder {
+    width: 16rem;
+    height: 12rem;
+  }
+}
+
+.hobbyText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hobbyLabel {
+  margin: 0;
+  font-size: var(--font-size-h3);
+  color: var(--color-accent);
+}
+
+.hobbyDescription {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--font-size-md);
+  line-height: 1.6;
 }
