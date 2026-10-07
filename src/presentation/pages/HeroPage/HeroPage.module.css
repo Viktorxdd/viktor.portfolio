@@ -42,6 +42,11 @@
   color: var(--color-muted);
 }
 
+.navSlashTone {
+  color: var(--color-accent);
+  margin-right: 0.6ch;
+}
+
 .codeBlock {
   width: 26ch;
   margin: 0;
@@ -80,6 +85,12 @@
   gap: 1.75rem;
   margin-top: 0.5rem;
   font-size: var(--font-size-sm);
+}
+
+@media (min-width: 768px) {
+  .nav {
+    font-size: var(--font-size-md);
+  }
 }
 
 .navLink {
