@@ -1,9 +1,16 @@
 @import './presentation/styles/tokens.css';
 
 :root {
+  font-size: 13px;
   color-scheme: dark;
   color: var(--color-text);
   background: var(--color-bg);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    font-size: 14px;
+  }
 }
 
 * {
@@ -13,12 +20,5 @@
 body {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 16px;
   line-height: 1.5;
-}
-
-@media (min-width: 1024px) {
-  body {
-    font-size: 18px;
-  }
 }

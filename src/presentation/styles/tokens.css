@@ -6,4 +6,21 @@
   --color-border: #1f2b24;
 
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Headings: fixed px, deliberately exempt from the root rem-scale below. */
+  --font-size-h1: 24px;
+  --font-size-h2: 18px;
+  --font-size-h3: 16px;
+
+  /* Everything else: rem, scales with :root's font-size (set in index.css). */
+  --font-size-xs: 0.7rem; /* footer, prompt lines, placeholders */
+  --font-size-sm: 0.8rem; /* nav links, hobby list items, hero code block (mobile) */
+  --font-size-md: 0.9rem; /* body paragraphs, hero code block (desktop) */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.85rem;
+  }
 }
