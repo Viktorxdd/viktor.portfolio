@@ -1,8 +1,25 @@
 .page {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   box-sizing: border-box;
+}
+
+.prompt {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--font-size-xs);
+}
+
+@media (min-width: 768px) {
+  .prompt {
+    top: 1rem;
+    left: 1rem;
+  }
 }
 
 .hero {
@@ -14,12 +31,6 @@
   gap: 1.5rem;
   padding: 2rem 1rem;
   text-align: center;
-}
-
-.prompt {
-  margin: 0;
-  color: var(--color-muted);
-  font-size: 0.85rem;
 }
 
 .accent {
@@ -34,7 +45,7 @@
 .codeBlock {
   width: 26ch;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
   line-height: 1.6;
   text-align: left;
   overflow-x: auto;
@@ -43,7 +54,7 @@
 @media (min-width: 768px) {
   .codeBlock {
     width: 34ch;
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
   }
 }
 
@@ -66,36 +77,56 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 1.75rem;
   margin-top: 0.5rem;
-  font-size: 0.85rem;
+  font-size: var(--font-size-sm);
 }
 
-.nav a {
-  color: var(--color-text);
-  text-decoration: none;
-}
-
-.nav a:hover,
-.nav a:focus-visible {
-  color: var(--color-accent);
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.5rem 1rem;
-  border-top: 1px solid var(--color-border);
-  font-size: 0.75rem;
-}
-
-.footer a {
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
   color: var(--color-muted);
   text-decoration: none;
 }
 
-.footer a:hover,
-.footer a:focus-visible {
+.navLink .arrow {
+  position: absolute;
+  left: 0;
+  top: -0.02em;
   color: var(--color-accent);
+  opacity: 0;
+  transform-origin: 50% 53%;
+  transform: rotate(-72deg) scaleY(0);
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+
+.navLink .slash {
+  display: inline-block;
+  line-height: 0;
+  margin-right: 0.6ch;
+  color: var(--color-accent);
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  transition: all 0.3s;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--color-text);
+}
+
+.navLink:hover .arrow,
+.navLink:focus-visible .arrow {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+.navLink:hover .slash,
+.navLink:focus-visible .slash {
+  margin-right: 1ch;
+  opacity: 0;
+  transform: scale(0.5) rotate(72deg);
 }

@@ -1,24 +1,29 @@
 import { Link } from 'react-router'
 import { useTypewriter } from '../../../logic/hooks/useTypewriter'
+import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import styles from './HeroPage.module.css'
 
 const STATUS_WORDS = ['student', 'developer', 'gamer', 'hockey enthusiast']
 
-const GITHUB_URL = 'https://github.com/Viktorxdd'
-const LINKEDIN_URL = 'https://www.linkedin.com/in/viktor-liljegren-b5801018a'
-const EMAIL = 'viktor.liljegren99@gmail.com'
+const SECTION_LINKS = [
+  { to: '/about', label: 'about' },
+  { to: '/projects', label: 'projects' },
+  { to: '/experience', label: 'experience' },
+  { to: '/tech-stack', label: 'tech-stack' },
+  { to: '/contact', label: 'contact' },
+]
 
 function HeroPage() {
   const status = useTypewriter({ words: STATUS_WORDS })
 
   return (
     <div className={styles.page}>
-      <main className={styles.hero}>
-        <p className={styles.prompt}>
-          <span className={styles.accent}>guest</span>@viktor-portfolio
-          <span className={styles.accent}>:~$</span> whoami
-        </p>
+      <p className={styles.prompt}>
+        <span className={styles.accent}>guest</span>@viktor-portfolio
+        <span className={styles.accent}>:~$</span> whoami
+      </p>
 
+      <main className={styles.hero}>
         <pre className={styles.codeBlock}>
           <span className={styles.muted}>{'{'}</span>
           {'\n  '}
@@ -36,23 +41,21 @@ function HeroPage() {
         </pre>
 
         <nav className={styles.nav} aria-label="Main">
-          <Link to="/about">./about</Link>
-          <Link to="/projects">./projects</Link>
-          <Link to="/experience">./experience</Link>
-          <Link to="/tech-stack">./tech-stack</Link>
-          <Link to="/contact">./contact</Link>
+          {SECTION_LINKS.map((link) => (
+            <Link key={link.to} to={link.to} className={styles.navLink}>
+              <span className={styles.arrow} aria-hidden="true">
+                -&gt;
+              </span>
+              <span className={styles.slash} aria-hidden="true">
+                /
+              </span>
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </main>
 
-      <footer className={styles.footer}>
-        <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
-          github
-        </a>
-        <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
-          linkedin
-        </a>
-        <a href={`mailto:${EMAIL}`}>mail</a>
-      </footer>
+      <ContactFooter />
     </div>
   )
 }
