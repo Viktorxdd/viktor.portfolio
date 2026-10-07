@@ -31,8 +31,8 @@ Personlig portfolio-hemsida för en student. Syftet är att presentera mig som p
 | `/tech-stack` | Språk och verktyg, kopplade till projekt där de använts |
 | `/contact` | Kontakt (mailto, GitHub, LinkedIn) |
 
-- Hero-sidan visar navigationen centrerat på skärmen.
-- Undersidorna behöver ett sätt att navigera vidare (t.ex. en mindre navbar eller tillbaka-länk). Besökare kan landa direkt på en undersida via delad länk.
+- Hero-sidan visar navigationen centrerat på skärmen (egen inline-nav, inte den delade `Navbar`) – avsiktligt undantag, beslutat 2026-10-07.
+- Undersidorna använder den delade `Navbar`-komponenten (`presentation/components/Navbar/`): en vanlig header-rad högst upp (inte fast/överlagd), hemlänk (`viktor@portfolio`) till vänster, sektionslänkar till höger i stil `-> /about` (pil+slash tonar in vid hover, döljer länken till sidan man redan är på). Innehållet på undersidorna är vänsterjusterat, inte centrerat. Besökare kan landa direkt på en undersida via delad länk.
 - Ett okänt route ska visa en 404-sida.
 
 ## Globala kontroller (uppe i hörnet, på alla sidor)
@@ -154,6 +154,13 @@ public/
 **Regel:** varje komponent/sida äger sin egen `.module.css` i samma mapp. Ingen delad/global CSS för komponentspecifik styling – bara tema- och typografivariabler får ligga globalt i `presentation/styles/`.
 
 **Responsivitet:** mobile-first. Skriv basstilen för minsta skärm, bygg upp med `min-width`-media queries (inte `max-width`) för tablet/desktop. Riktvärden tills design är klar: `768px` (tablet), `1024px` (desktop) – samma brytpunkter i alla komponenter.
+
+**Typografi-skala:** `font-size` sätts på `:root` i `index.css` (i `px` – den enda platsen `px` används för textstorlek, eftersom `rem` räknas mot root-elementet). Semantiska storlekstokens i `presentation/styles/tokens.css`:
+
+- `--font-size-h1/h2/h3` – fasta `px`-värden, medvetet undantagna från root-skalan (rubriker ändras inte när bastextstorleken justeras)
+- `--font-size-xs/sm/md` – `rem`, skalar med root-värdet. `xs` + `sm` växer vid `768px` (definierat en gång i `tokens.css`, inte i varje komponent)
+
+Komponenter ska använda `var(--font-size-...)` istället för hårdkodade `rem`/`px`-värden för text, så att storlekar justeras på ett ställe.
 
 ## Arbetssätt
 
