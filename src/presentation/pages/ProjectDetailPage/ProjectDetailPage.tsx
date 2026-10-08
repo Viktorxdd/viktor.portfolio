@@ -53,7 +53,13 @@ function ProjectDetailPage() {
           </div>
         )}
 
-        <p className={styles.description}>{project.description}</p>
+        <div className={styles.description}>
+          {project.description.map((paragraph, index) => (
+            <p key={index} className={styles.paragraph}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
 
         <section className={styles.section} aria-labelledby="tech-heading">
           <h2 id="tech-heading" className={styles.sectionHeading}>
