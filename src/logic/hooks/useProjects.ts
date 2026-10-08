@@ -11,7 +11,7 @@ export type LocalizedProject = Omit<
 > & {
   title: string
   summary: string
-  description: string
+  description: string[]
   role?: string
   images: { src: string; alt: string }[]
 }
