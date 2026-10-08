@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { useProjects } from '../../../logic/hooks/useProjects'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
@@ -25,7 +26,14 @@ function ProjectsPage() {
             </div>
 
             <div className={styles.projectText}>
-              <h2 className={styles.projectTitle}>{project.title}</h2>
+              <h2 className={styles.projectTitle}>
+                <Link
+                  to={`/projects/${project.slug}`}
+                  className={styles.projectTitleLink}
+                >
+                  {project.title}
+                </Link>
+              </h2>
               <p className={styles.projectSummary}>{project.summary}</p>
 
               <ul className={styles.techList}>
