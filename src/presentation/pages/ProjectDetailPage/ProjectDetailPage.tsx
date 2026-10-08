@@ -29,6 +29,29 @@ function ProjectDetailPage() {
             {project.role && ` · ${project.role}`}
           </p>
         </header>
+
+        {project.images.length > 0 ? (
+          <div
+            className={styles.gallery}
+            role="region"
+            aria-label={`${project.title} images`}
+            tabIndex={0}
+          >
+            {project.images.map((image, index) => (
+              <img
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                className={styles.galleryImage}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className={styles.imagePlaceholder} aria-hidden="true">
+            image
+          </div>
+        )}
       </main>
 
       <ContactFooter />
