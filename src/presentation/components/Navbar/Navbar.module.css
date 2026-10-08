@@ -1,0 +1,83 @@
+.header {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 1rem 2rem;
+  }
+}
+
+.home {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.home:hover,
+.home:focus-visible {
+  color: var(--color-accent);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.navLink .arrow {
+  position: absolute;
+  left: 0;
+  top: -0.02em;
+  color: var(--color-accent);
+  opacity: 0;
+  transform-origin: 50% 53%;
+  transform: rotate(-72deg) scaleY(0);
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+
+.navLink .slash {
+  display: inline-block;
+  line-height: 0;
+  margin-right: 0.6ch;
+  color: var(--color-accent);
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  transition: all 0.3s;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--color-text);
+}
+
+.navLink:hover .arrow,
+.navLink:focus-visible .arrow {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+.navLink:hover .slash,
+.navLink:focus-visible .slash {
+  margin-right: 1ch;
+  opacity: 0;
+  transform: scale(0.5) rotate(72deg);
+}

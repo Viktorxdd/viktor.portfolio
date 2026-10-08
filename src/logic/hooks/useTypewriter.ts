@@ -5,6 +5,7 @@ type UseTypewriterOptions = {
   typingSpeedMs?: number
   deletingSpeedMs?: number
   pauseMs?: number
+  enabled?: boolean
 }
 
 export function useTypewriter({
@@ -12,12 +13,17 @@ export function useTypewriter({
   typingSpeedMs = 90,
   deletingSpeedMs = 50,
   pauseMs = 1400,
+  enabled = true,
 }: UseTypewriterOptions) {
   const [display, setDisplay] = useState('')
   const [wordIndex, setWordIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
+    if (!enabled) {
+      return
+    }
+
     const currentWord = words[wordIndex]
     const isWordComplete = display === currentWord
     const isWordEmpty = display === ''
@@ -51,6 +57,7 @@ export function useTypewriter({
     typingSpeedMs,
     deletingSpeedMs,
     pauseMs,
+    enabled,
   ])
 
   return display
