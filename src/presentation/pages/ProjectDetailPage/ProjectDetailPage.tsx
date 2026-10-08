@@ -52,6 +52,47 @@ function ProjectDetailPage() {
             image
           </div>
         )}
+
+        <p className={styles.description}>{project.description}</p>
+
+        <section className={styles.section} aria-labelledby="tech-heading">
+          <h2 id="tech-heading" className={styles.sectionHeading}>
+            tech
+          </h2>
+          <ul className={styles.techList}>
+            {project.tech.map((tech) => (
+              <li key={tech} className={styles.techItem}>
+                {tech}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <div className={styles.links}>
+          {project.repoUrl && (
+            <a
+              href={project.repoUrl}
+              className={styles.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              repo
+            </a>
+          )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              className={styles.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              live
+            </a>
+          )}
+          {project.isPrivate && (
+            <span className={styles.privateNote}>private repo</span>
+          )}
+        </div>
       </main>
 
       <ContactFooter />
