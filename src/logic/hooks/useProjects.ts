@@ -15,7 +15,7 @@ export type LocalizedProject = Omit<
   role?: string
 }
 
-function localizeProject(project: Project): LocalizedProject {
+export function localizeProject(project: Project): LocalizedProject {
   return {
     ...project,
     title: project.title[CURRENT_LANG],
