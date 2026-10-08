@@ -1,6 +1,101 @@
 .page {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.prompt {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.accent {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.codeBlock {
+  width: 26ch;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: left;
+  overflow-x: auto;
+}
+
+@media (min-width: 768px) {
+  .codeBlock {
+    width: 34ch;
+    font-size: 1.1rem;
+  }
+}
+
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.nav a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--color-accent);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.75rem;
+}
+
+.footer a {
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  color: var(--color-accent);
 }
