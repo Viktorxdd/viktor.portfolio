@@ -1,4 +1,5 @@
 .header {
+  view-transition-name: navbar; /* stays put during page slides */
   width: 100%;
   box-sizing: border-box;
   display: flex;
