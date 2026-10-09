@@ -1,3 +1,4 @@
+import { flushSync } from 'react-dom'
 import { useNavigate } from 'react-router'
 
 export type SlideDirection = 'forward' | 'back'
@@ -22,9 +23,9 @@ export function useSlideNavigate() {
     root.dataset.slide = direction
 
     const transition = document.startViewTransition(() => {
-      // The router wraps updates in startTransition by default; flushSync makes
-      // React update the DOM before the "after" snapshot is taken.
-      navigate(to, { flushSync: true })
+      // flushSync makes React update the DOM before the "after" snapshot.
+      // Needs <BrowserRouter useTransitions={false}> (see main.tsx).
+      flushSync(() => navigate(to))
     })
 
     void transition.finished.finally(() => {
