@@ -1,7 +1,8 @@
-import { Link, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import { useProject } from '../../../logic/hooks/useProject'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
+import SlideLink from '../../components/SlideLink/SlideLink'
 import NotFoundPage from '../NotFoundPage/NotFoundPage'
 import styles from './ProjectDetailPage.module.css'
 
@@ -18,9 +19,9 @@ function ProjectDetailPage() {
       <Navbar />
 
       <main className={styles.content}>
-        <Link to="/projects" className={styles.back}>
+        <SlideLink to="/projects" direction="back" className={styles.back}>
           &larr; projects
-        </Link>
+        </SlideLink>
 
         <header className={styles.header}>
           <h1 className={styles.title}>{project.title}</h1>

@@ -1,7 +1,7 @@
-import { Link } from 'react-router'
 import { useProjects } from '../../../logic/hooks/useProjects'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
+import SlideLink from '../../components/SlideLink/SlideLink'
 import styles from './ProjectsPage.module.css'
 
 function ProjectsPage() {
@@ -27,12 +27,13 @@ function ProjectsPage() {
 
             <div className={styles.projectText}>
               <h2 className={styles.projectTitle}>
-                <Link
+                <SlideLink
                   to={`/projects/${project.slug}`}
+                  direction="forward"
                   className={styles.projectTitleLink}
                 >
                   {project.title}
-                </Link>
+                </SlideLink>
               </h2>
               <p className={styles.projectSummary}>{project.summary}</p>
 
