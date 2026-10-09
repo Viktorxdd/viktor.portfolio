@@ -1,0 +1,46 @@
+/* Page slide for SlideLink navigations. useSlideNavigate sets
+   <html data-slide="forward|back"> while the view transition runs. */
+
+@keyframes slide-out-left {
+  to {
+    transform: translateX(-8%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-right {
+  to {
+    transform: translateX(8%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(8%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-8%);
+    opacity: 0;
+  }
+}
+
+:root[data-slide='forward']::view-transition-old(root) {
+  animation: slide-out-left 150ms ease-in both;
+}
+
+:root[data-slide='forward']::view-transition-new(root) {
+  animation: slide-in-from-right 200ms ease-out 50ms both;
+}
+
+:root[data-slide='back']::view-transition-old(root) {
+  animation: slide-out-right 150ms ease-in both;
+}
+
+:root[data-slide='back']::view-transition-new(root) {
+  animation: slide-in-from-left 200ms ease-out 50ms both;
+}
