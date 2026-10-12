@@ -62,7 +62,11 @@ const TECH_STACK: TechItem[] = [
     category: 'tool',
     icon: '/icons/sass.svg',
   },
-  { name: 'Bicep', category: 'tool' },
+  {
+    name: 'Bicep',
+    category: 'tool',
+    icon: '/icons/bicep.svg',
+  },
   {
     name: 'GitHub',
     category: 'tool',
@@ -73,7 +77,11 @@ const TECH_STACK: TechItem[] = [
     category: 'database',
     icon: '/icons/mongodb.svg',
   },
-  { name: 'Cosmos DB', category: 'database' },
+  {
+    name: 'Cosmos DB',
+    category: 'database',
+    icon: '/icons/cosmos-db.svg',
+  },
   {
     name: 'Azure',
     category: 'cloud',

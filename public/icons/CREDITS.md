@@ -32,4 +32,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+Two icons come from other sources:
+
+- `cosmos-db.svg`: Azure Cosmos DB icon from the Azure architecture icons,
+  mirrored by https://az-icons.com. Owned by Microsoft; see Microsoft's icon
+  terms at https://learn.microsoft.com/en-us/azure/architecture/icons/
+- `bicep.svg`: Bicep logo from `docs/images/BicepLogoImage.svg` in the
+  https://github.com/Azure/bicep repository (MIT-licensed repository).
+
 The logos themselves are trademarks of their respective owners.
