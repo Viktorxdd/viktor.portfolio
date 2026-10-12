@@ -9,6 +9,7 @@ const TECH_STACK: TechItem[] = [
   { name: 'CSS', category: 'language' },
   { name: 'React', category: 'framework' },
   { name: 'Angular', category: 'framework' },
+  { name: 'Spring Boot', category: 'framework' },
   { name: 'Tailwind CSS', category: 'framework' },
   { name: 'Bootstrap', category: 'framework' },
   { name: 'Vite', category: 'tool' },
