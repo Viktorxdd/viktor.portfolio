@@ -23,3 +23,16 @@ export type Experience = {
   end?: string // missing = ongoing
   description: Localized<string[]> // one array element per bullet point
 }
+
+export type TechCategory =
+  | 'language'
+  | 'framework'
+  | 'tool'
+  | 'database'
+  | 'cloud'
+
+export type TechItem = {
+  name: string // must match the names used in Project.tech
+  category: TechCategory
+  icon?: string // path under public/, e.g. "/icons/typescript.svg"; text only if missing
+}
