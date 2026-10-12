@@ -1,9 +1,7 @@
 import type { ComponentProps, MouseEvent } from 'react'
 import { Link } from 'react-router'
-import {
-  useSlideNavigate,
-  type SlideDirection,
-} from '../../../logic/hooks/useSlideNavigate'
+import { useSlideNavigate } from '../../../logic/hooks/useSlideNavigate'
+import type { SlideDirection } from '../../../logic/navigation/slideDirection'
 
 type SlideLinkProps = Omit<ComponentProps<typeof Link>, 'to'> & {
   to: string

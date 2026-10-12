@@ -1,7 +1,6 @@
 import { flushSync } from 'react-dom'
 import { useNavigate } from 'react-router'
-
-export type SlideDirection = 'forward' | 'back'
+import type { SlideDirection } from '../navigation/slideDirection'
 
 // <BrowserRouter> has no built-in view transitions, so wrap navigate() in the
 // browser's View Transitions API ourselves. The direction goes on <html> as

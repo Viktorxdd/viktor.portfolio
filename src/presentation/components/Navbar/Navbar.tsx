@@ -1,4 +1,6 @@
-import { Link, useLocation } from 'react-router'
+import { useLocation } from 'react-router'
+import { getSlideDirection } from '../../../logic/navigation/slideDirection'
+import SlideLink from '../SlideLink/SlideLink'
 import styles from './Navbar.module.css'
 
 const SECTION_LINKS = [
@@ -14,14 +16,23 @@ function Navbar() {
 
   return (
     <header className={styles.header}>
-      <Link to="/" className={styles.home}>
+      <SlideLink
+        to="/"
+        direction={getSlideDirection(location.pathname, '/')}
+        className={styles.home}
+      >
         viktor@portfolio
-      </Link>
+      </SlideLink>
 
       <nav className={styles.nav} aria-label="Main">
         {SECTION_LINKS.filter((link) => link.to !== location.pathname).map(
           (link) => (
-            <Link key={link.to} to={link.to} className={styles.navLink}>
+            <SlideLink
+              key={link.to}
+              to={link.to}
+              direction={getSlideDirection(location.pathname, link.to)}
+              className={styles.navLink}
+            >
               <span className={styles.arrow} aria-hidden="true">
                 -&gt;
               </span>
@@ -29,7 +40,7 @@ function Navbar() {
                 /
               </span>
               {link.label}
-            </Link>
+            </SlideLink>
           ),
         )}
       </nav>

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router'
 import { useRevealCount } from '../../../logic/hooks/useRevealCount'
 import { useTypewriter } from '../../../logic/hooks/useTypewriter'
+import { getSlideDirection } from '../../../logic/navigation/slideDirection'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
+import SlideLink from '../../components/SlideLink/SlideLink'
 import styles from './HeroPage.module.css'
 
 // How long the fully-typed intro (cursor still blinking after /contact)
@@ -189,7 +190,12 @@ function HeroPage() {
 
             <nav className={styles.nav} aria-label="Main">
               {SECTION_LINKS.map((link) => (
-                <Link key={link.to} to={link.to} className={styles.navLink}>
+                <SlideLink
+                  key={link.to}
+                  to={link.to}
+                  direction={getSlideDirection('/', link.to)}
+                  className={styles.navLink}
+                >
                   <span className={styles.arrow} aria-hidden="true">
                     -&gt;
                   </span>
@@ -197,7 +203,7 @@ function HeroPage() {
                     /
                   </span>
                   {link.label}
-                </Link>
+                </SlideLink>
               ))}
             </nav>
           </>

@@ -1,4 +1,6 @@
+import { useLocation } from 'react-router'
 import { useProjects } from '../../../logic/hooks/useProjects'
+import { getSlideDirection } from '../../../logic/navigation/slideDirection'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
 import SlideLink from '../../components/SlideLink/SlideLink'
@@ -6,6 +8,7 @@ import styles from './ProjectsPage.module.css'
 
 function ProjectsPage() {
   const projects = useProjects()
+  const { pathname } = useLocation()
 
   return (
     <div className={styles.page}>
@@ -29,7 +32,10 @@ function ProjectsPage() {
               <h2 className={styles.projectTitle}>
                 <SlideLink
                   to={`/projects/${project.slug}`}
-                  direction="forward"
+                  direction={getSlideDirection(
+                    pathname,
+                    `/projects/${project.slug}`,
+                  )}
                   className={styles.projectTitleLink}
                 >
                   {project.title}

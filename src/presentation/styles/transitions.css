@@ -1,5 +1,6 @@
 /* Page slide for SlideLink navigations. useSlideNavigate sets
-   <html data-slide="forward|back"> while the view transition runs. */
+   <html data-slide="from-right|from-left|from-top|from-bottom"> to say where
+   the incoming page enters from, while the view transition runs. */
 
 @keyframes slide-out-left {
   to {
@@ -11,6 +12,20 @@
 @keyframes slide-out-right {
   to {
     transform: translateX(8%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-up {
+  to {
+    transform: translateY(-8%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-down {
+  to {
+    transform: translateY(8%);
     opacity: 0;
   }
 }
@@ -29,18 +44,49 @@
   }
 }
 
-:root[data-slide='forward']::view-transition-old(root) {
+@keyframes slide-in-from-top {
+  from {
+    transform: translateY(-8%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(8%);
+    opacity: 0;
+  }
+}
+
+/* The old page leaves the opposite way the new one arrives from. */
+:root[data-slide='from-right']::view-transition-old(root) {
   animation: slide-out-left 150ms ease-in both;
 }
 
-:root[data-slide='forward']::view-transition-new(root) {
-  animation: slide-in-from-right 200ms ease-out 50ms both;
-}
-
-:root[data-slide='back']::view-transition-old(root) {
+:root[data-slide='from-left']::view-transition-old(root) {
   animation: slide-out-right 150ms ease-in both;
 }
 
-:root[data-slide='back']::view-transition-new(root) {
+:root[data-slide='from-bottom']::view-transition-old(root) {
+  animation: slide-out-up 150ms ease-in both;
+}
+
+:root[data-slide='from-top']::view-transition-old(root) {
+  animation: slide-out-down 150ms ease-in both;
+}
+
+:root[data-slide='from-right']::view-transition-new(root) {
+  animation: slide-in-from-right 200ms ease-out 50ms both;
+}
+
+:root[data-slide='from-left']::view-transition-new(root) {
   animation: slide-in-from-left 200ms ease-out 50ms both;
+}
+
+:root[data-slide='from-bottom']::view-transition-new(root) {
+  animation: slide-in-from-bottom 200ms ease-out 50ms both;
+}
+
+:root[data-slide='from-top']::view-transition-new(root) {
+  animation: slide-in-from-top 200ms ease-out 50ms both;
 }
