@@ -14,3 +14,12 @@ export type Project = {
   date: string
   featured?: boolean
 }
+
+export type Experience = {
+  type: 'education' | 'work' | 'other'
+  title: Localized<string>
+  organization: string
+  start: string // ISO, e.g. "2024-08"
+  end?: string // missing = ongoing
+  description: Localized<string>
+}
