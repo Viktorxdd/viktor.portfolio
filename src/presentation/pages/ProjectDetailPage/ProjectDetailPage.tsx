@@ -1,5 +1,6 @@
-import { useParams } from 'react-router'
+import { useLocation, useParams } from 'react-router'
 import { useProject } from '../../../logic/hooks/useProject'
+import { getSlideDirection } from '../../../logic/navigation/slideDirection'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
 import SlideLink from '../../components/SlideLink/SlideLink'
@@ -9,6 +10,7 @@ import styles from './ProjectDetailPage.module.css'
 function ProjectDetailPage() {
   const { slug } = useParams()
   const project = useProject(slug)
+  const { pathname } = useLocation()
 
   if (!project) {
     return <NotFoundPage />
@@ -19,7 +21,11 @@ function ProjectDetailPage() {
       <Navbar />
 
       <main className={styles.content}>
-        <SlideLink to="/projects" direction="from-left" className={styles.back}>
+        <SlideLink
+          to="/projects"
+          direction={getSlideDirection(pathname, '/projects')}
+          className={styles.back}
+        >
           &larr; projects
         </SlideLink>
 
