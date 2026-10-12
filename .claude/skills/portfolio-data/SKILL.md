@@ -31,7 +31,7 @@ type Experience = {
   organization: string;
   start: string;
   end?: string;                    // saknas = pågående
-  description: Localized<string>;
+  description: Localized<string[]>; // en punkt per element
 };
 
 type TechItem = {

@@ -10,8 +10,16 @@ const EXPERIENCE: Experience[] = [
     organization: 'Lorem Ipsum University',
     start: '2024-08',
     description: {
-      sv: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      en: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      sv: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+      ],
+      en: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+      ],
     },
   },
   {
@@ -24,8 +32,14 @@ const EXPERIENCE: Experience[] = [
     start: '2021-08',
     end: '2024-06',
     description: {
-      sv: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      en: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      sv: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      ],
+      en: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      ],
     },
   },
   {
@@ -38,8 +52,22 @@ const EXPERIENCE: Experience[] = [
     start: '2025-06',
     end: '2025-08',
     description: {
-      sv: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-      en: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      sv: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.',
+        'Curabitur pretium tincidunt lacus, nulla gravida orci a odio nullam varius.',
+      ],
+      en: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.',
+        'Curabitur pretium tincidunt lacus, nulla gravida orci a odio nullam varius.',
+      ],
     },
   },
   {
@@ -52,8 +80,14 @@ const EXPERIENCE: Experience[] = [
     start: '2023-01',
     end: '2024-12',
     description: {
-      sv: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      en: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      sv: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      ],
+      en: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      ],
     },
   },
 ]

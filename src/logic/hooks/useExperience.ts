@@ -6,7 +6,7 @@ const CURRENT_LANG = 'sv'
 
 export type LocalizedExperience = Omit<Experience, 'title' | 'description'> & {
   title: string
-  description: string
+  description: string[]
 }
 
 export function useExperience(): LocalizedExperience[] {

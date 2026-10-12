@@ -21,5 +21,5 @@ export type Experience = {
   organization: string
   start: string // ISO, e.g. "2024-08"
   end?: string // missing = ongoing
-  description: Localized<string>
+  description: Localized<string[]> // one array element per bullet point
 }
