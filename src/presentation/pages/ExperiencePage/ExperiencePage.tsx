@@ -34,7 +34,13 @@ function ExperiencePage() {
             </div>
 
             <p className={styles.entryOrganization}>{entry.organization}</p>
-            <p className={styles.entryDescription}>{entry.description}</p>
+            <ul className={styles.entryPoints}>
+              {entry.description.map((point, index) => (
+                <li key={index} className={styles.entryPoint}>
+                  {point}
+                </li>
+              ))}
+            </ul>
           </section>
         ))}
       </main>

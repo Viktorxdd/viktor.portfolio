@@ -68,9 +68,26 @@
   font-size: var(--font-size-md);
 }
 
-.entryDescription {
+.entryPoints {
   margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.entryPoint {
+  position: relative;
+  padding-left: 1.5ch;
   color: var(--color-muted);
   font-size: var(--font-size-md);
   line-height: 1.6;
+}
+
+.entryPoint::before {
+  content: '-';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
 }
