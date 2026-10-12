@@ -43,7 +43,7 @@ type TechItem = {
 ## Regler
 
 - Projekt sorteras på `date` (nyast först), `featured` först.
-- Tech stack-sidan kan visa vilka projekt varje teknik använts i (härlett från `Project.tech`).
+- Tech stack-sidan visar bara teknikerna, grupperade per kategori. Vilka tekniker ett projekt använder visas på projektets egen sida (`Project.tech`).
 - Fyll med 2–3 platshållarprojekt tills riktigt innehåll finns.
 - Alla översatta fält använder `Localized<T>` – se skillen `portfolio-i18n`.
 - Komponenter hämtar data via hooks i `logic/hooks/` (`useProjects`, `useExperience`, `useTechStack`), inte direkt från `data/`.
