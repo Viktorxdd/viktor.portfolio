@@ -1,0 +1,16 @@
+.button {
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: none;
+  color: var(--color-muted);
+  font: inherit;
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus-visible {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
