@@ -80,6 +80,16 @@
   color: var(--color-accent);
 }
 
+.projectTitleLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.projectTitleLink:hover,
+.projectTitleLink:focus-visible {
+  text-decoration: underline;
+}
+
 .projectSummary {
   margin: 0;
   color: var(--color-muted);

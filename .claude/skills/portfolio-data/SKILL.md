@@ -14,7 +14,7 @@ type Project = {
   slug: string;
   title: Localized<string>;
   summary: Localized<string>;      // kort text för listan
-  description: Localized<string>;  // längre text för projektsidan
+  description: Localized<string[]>; // längre text för projektsidan, ett stycke per element
   role?: Localized<string>;        // min roll / vad jag gjorde
   tech: string[];                  // ska matcha namn i techStack
   images: { src: string; alt: Localized<string> }[];

@@ -6,7 +6,9 @@ import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    {/* No startTransition around navigations, so useSlideNavigate's flushSync
+        can update the DOM before the view transition's "after" snapshot. */}
+    <BrowserRouter useTransitions={false}>
       <App />
     </BrowserRouter>
   </StrictMode>,
