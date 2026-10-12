@@ -1,10 +1,7 @@
-import { useLocation } from 'react-router'
 import { useTechStack } from '../../../logic/hooks/useTechStack'
-import { getSlideDirection } from '../../../logic/navigation/slideDirection'
 import type { TechCategory } from '../../../types/content'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
-import SlideLink from '../../components/SlideLink/SlideLink'
 import styles from './TechStackPage.module.css'
 
 // Hardcoded until LanguageProvider exists — move to translations.ts then.
@@ -18,7 +15,6 @@ const CATEGORY_LABELS: Record<TechCategory, string> = {
 
 function TechStackPage() {
   const groups = useTechStack()
-  const { pathname } = useLocation()
 
   return (
     <div className={styles.page}>
@@ -50,25 +46,6 @@ function TechStackPage() {
                     />
                   )}
                   <span className={styles.name}>{item.name}</span>
-
-                  {item.projects.length > 0 && (
-                    <ul className={styles.projects}>
-                      {item.projects.map((project) => (
-                        <li key={project.slug}>
-                          <SlideLink
-                            to={`/projects/${project.slug}`}
-                            direction={getSlideDirection(
-                              pathname,
-                              `/projects/${project.slug}`,
-                            )}
-                            className={styles.projectLink}
-                          >
-                            {project.title}
-                          </SlideLink>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </li>
               ))}
             </ul>

@@ -36,7 +36,7 @@ Detaljerade regler ligger i projektets skills (`.claude/skills/`). Använd dem n
 | `/projects` | Lista över projekt |
 | `/projects/:slug` | Enskilt projekt |
 | `/experience` | Utbildning, jobb, praktik |
-| `/tech-stack` | Språk och verktyg, kopplade till projekt där de använts |
+| `/tech-stack` | Språk, ramverk och verktyg, med ikoner |
 | `/contact` | Kontakt (mailto, GitHub, LinkedIn) |
 
 - Hero-sidan har egen inline-nav, undersidorna använder den delade `Navbar` (detaljer i `portfolio-design`). Besökare kan landa direkt på en undersida via delad länk.

@@ -81,23 +81,3 @@
   font-size: var(--font-size-sm);
   color: var(--color-text);
 }
-
-.projects {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.projectLink {
-  color: var(--color-muted);
-  font-size: var(--font-size-xs);
-  text-decoration: none;
-}
-
-.projectLink:hover,
-.projectLink:focus-visible {
-  color: var(--color-accent);
-}
