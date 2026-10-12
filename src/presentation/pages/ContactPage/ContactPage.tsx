@@ -6,13 +6,14 @@ import styles from './ContactPage.module.css'
 
 // Hardcoded until LanguageProvider exists — move to translations.ts then.
 const INTRO = 'Jag söker jobb som utvecklare. Hör gärna av dig!'
+const CV_PLACEHOLDER = 'kommer snart'
 
 function withoutProtocol(url: string): string {
   return url.replace(/^https?:\/\/(www\.)?/, '')
 }
 
 function ContactPage() {
-  const { email, githubUrl, linkedinUrl } = useProfile()
+  const { email, githubUrl, linkedinUrl, cvUrl } = useProfile()
 
   return (
     <div className={styles.page}>
@@ -64,6 +65,19 @@ function ContactPage() {
               >
                 {withoutProtocol(linkedinUrl)}
               </a>
+            </dd>
+          </div>
+
+          <div className={styles.row}>
+            <dt className={styles.label}>cv</dt>
+            <dd className={styles.value}>
+              {cvUrl ? (
+                <a href={cvUrl} className={styles.link} download>
+                  {cvUrl.split('/').pop()}
+                </a>
+              ) : (
+                <span className={styles.placeholder}>{CV_PLACEHOLDER}</span>
+              )}
             </dd>
           </div>
         </dl>

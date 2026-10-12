@@ -90,3 +90,8 @@
 .link:focus-visible {
   color: var(--color-text);
 }
+
+.placeholder {
+  color: var(--color-muted);
+  font-size: var(--font-size-md);
+}
