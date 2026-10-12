@@ -29,7 +29,7 @@ function ProjectsPage() {
               <h2 className={styles.projectTitle}>
                 <SlideLink
                   to={`/projects/${project.slug}`}
-                  direction="forward"
+                  direction="from-right"
                   className={styles.projectTitleLink}
                 >
                   {project.title}

@@ -19,7 +19,7 @@ function ProjectDetailPage() {
       <Navbar />
 
       <main className={styles.content}>
-        <SlideLink to="/projects" direction="back" className={styles.back}>
+        <SlideLink to="/projects" direction="from-left" className={styles.back}>
           &larr; projects
         </SlideLink>
 
