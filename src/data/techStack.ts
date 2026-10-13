@@ -73,6 +73,11 @@ const TECH_STACK: TechItem[] = [
     icon: '/icons/github.svg',
   },
   {
+    name: 'Claude Code',
+    category: 'tool',
+    icon: '/icons/claude.svg',
+  },
+  {
     name: 'MongoDB',
     category: 'database',
     icon: '/icons/mongodb.svg',
