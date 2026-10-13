@@ -51,6 +51,7 @@
 .imagePlaceholder,
 .image {
   flex-shrink: 0;
+  align-self: flex-start; /* keep the 16:9 shape, don't stretch to the text height */
   width: 100%;
   aspect-ratio: 16 / 9;
   box-sizing: border-box;
