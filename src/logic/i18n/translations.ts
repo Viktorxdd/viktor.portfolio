@@ -64,7 +64,7 @@ const sv = {
     ariaLabel: (label: string) => `Kopiera ${label}`,
   },
   notFound: {
-    title: '404 – Sidan hittades inte',
+    title: '404: Sidan hittades inte',
   },
 }
 
@@ -125,7 +125,7 @@ const en: Translations = {
     },
   },
   contact: {
-    intro: 'I’m looking for a job as a developer. Feel free to get in touch!',
+    intro: "I'm looking for a job as a developer. Get in touch!",
     email: 'email',
     emailAddress: 'email address',
     cvPlaceholder: 'coming soon',
@@ -136,7 +136,7 @@ const en: Translations = {
     ariaLabel: (label: string) => `Copy ${label}`,
   },
   notFound: {
-    title: '404 – Page not found',
+    title: '404: Page not found',
   },
 }
 
