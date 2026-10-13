@@ -1,20 +1,14 @@
+import { useDocumentTitle } from '../../../logic/hooks/useDocumentTitle'
 import { useTechStack } from '../../../logic/hooks/useTechStack'
-import type { TechCategory } from '../../../types/content'
+import { useTranslations } from '../../../logic/i18n/useTranslations'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
 import styles from './TechStackPage.module.css'
 
-// Hardcoded until LanguageProvider exists — move to translations.ts then.
-const CATEGORY_LABELS: Record<TechCategory, string> = {
-  language: 'languages',
-  framework: 'frameworks',
-  tool: 'tools',
-  database: 'databases',
-  cloud: 'cloud',
-}
-
 function TechStackPage() {
   const groups = useTechStack()
+  const t = useTranslations()
+  useDocumentTitle(t.pageTitles.techStack)
 
   return (
     <div className={styles.page}>
@@ -26,12 +20,12 @@ function TechStackPage() {
           <span className={styles.accent}>:~/tech-stack$</span> ls
         </p>
 
-        <h1 className={styles.heading}>tech stack</h1>
+        <h1 className={styles.heading}>{t.headings.techStack}</h1>
 
         {groups.map((group) => (
           <section key={group.category} className={styles.group}>
             <h2 className={styles.groupHeading}>
-              {CATEGORY_LABELS[group.category]}
+              {t.techStack.categories[group.category]}
             </h2>
 
             <ul className={styles.grid}>

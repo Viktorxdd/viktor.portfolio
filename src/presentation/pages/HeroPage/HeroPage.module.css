@@ -22,6 +22,19 @@
   }
 }
 
+.languageToggle {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .languageToggle {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
 .hero {
   flex: 1;
   display: flex;

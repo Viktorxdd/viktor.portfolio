@@ -110,4 +110,4 @@ Använd alltid skillen `handledare`: fråga när något är oklart, lägg fram a
 - Nedladdningsbart CV
 - Kontaktformulär (t.ex. Formspree) eller bara länkar
 - Besöksstatistik
-- Språk i URL:en (`/en/projects`) – nuvarande beslut: nej, språket sparas i state/localStorage
+- Språk i sökvägen (`/en/projects`) – nuvarande beslut: nej, språket sparas i state/localStorage. Undantag: `?lang=sv|en` läses vid första laddningen så att en delad länk kan öppnas på ett visst språk (beslutat 2026-10-13).

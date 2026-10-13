@@ -14,7 +14,7 @@ Uppe i hörnet på alla sidor: svensk och engelsk flagga. Varje knapp ska ha `ar
 ## LanguageProvider
 
 - `LanguageProvider` (React Context) med `lang: "sv" | "en"` i `useState`.
-- Förval: sparat värde i `localStorage`, annars webbläsarens språk (`navigator.language`), annars `"sv"`.
+- Förval: `?lang=sv|en` i URL:en, annars sparat värde i `localStorage`, annars webbläsarens språk (`navigator.language`), annars `"sv"`. Parametern läses bara vid första laddningen och skrivs aldrig tillbaka till URL:en.
 - Vid ändring: spara i `localStorage` och sätt `document.documentElement.lang`.
 - Hook: `useLanguage()` returnerar `{ lang, setLang }`.
 - Ligger i `src/logic/i18n/`.
@@ -37,4 +37,4 @@ Innehållsdata använder typen `Localized<T> = { sv: T; en: T }` för alla över
 ## Övrigt
 
 - Uppdatera `document.title` per sida och språk.
-- Språk i URL:en (`/en/projects`) används inte – språket sparas i state/localStorage.
+- Språk i sökvägen (`/en/projects`) används inte – språket sparas i state/localStorage. Enda undantaget är `?lang=` ovan, så att en delad länk kan öppnas på ett visst språk.

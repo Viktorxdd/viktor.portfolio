@@ -1,5 +1,7 @@
 import { useLocation } from 'react-router'
+import { useDocumentTitle } from '../../../logic/hooks/useDocumentTitle'
 import { useProjects } from '../../../logic/hooks/useProjects'
+import { useTranslations } from '../../../logic/i18n/useTranslations'
 import { getSlideDirection } from '../../../logic/navigation/slideDirection'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
@@ -8,6 +10,8 @@ import styles from './ProjectsPage.module.css'
 
 function ProjectsPage() {
   const projects = useProjects()
+  const t = useTranslations()
+  useDocumentTitle(t.pageTitles.projects)
   const { pathname } = useLocation()
 
   return (
@@ -20,7 +24,7 @@ function ProjectsPage() {
           <span className={styles.accent}>:~/projects$</span> ls
         </p>
 
-        <h1 className={styles.heading}>projects</h1>
+        <h1 className={styles.heading}>{t.headings.projects}</h1>
 
         {projects.map((project) => (
           <section key={project.slug} className={styles.projectSection}>
@@ -52,7 +56,9 @@ function ProjectsPage() {
               </ul>
 
               {project.isPrivate ? (
-                <span className={styles.privateNote}>private repo</span>
+                <span className={styles.privateNote}>
+                  {t.projects.privateRepo}
+                </span>
               ) : (
                 project.repoUrl && (
                   <a
@@ -61,7 +67,7 @@ function ProjectsPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    repo
+                    {t.projects.repo}
                   </a>
                 )
               )}

@@ -1,7 +1,5 @@
 import { getAbout } from '../../data/about'
-
-// Hardcoded until LanguageProvider exists, same as in useExperience.
-const CURRENT_LANG = 'sv'
+import { useLanguage } from '../i18n/useLanguage'
 
 export type LocalizedAbout = {
   bio: string[]
@@ -13,16 +11,17 @@ export type LocalizedAbout = {
 }
 
 export function useAbout(): LocalizedAbout {
+  const { lang } = useLanguage()
   const about = getAbout()
 
   return {
-    bio: about.bio[CURRENT_LANG],
+    bio: about.bio[lang],
     hobbies: about.hobbies.map((hobby) => ({
-      label: hobby.label[CURRENT_LANG],
-      description: hobby.description[CURRENT_LANG],
+      label: hobby.label[lang],
+      description: hobby.description[lang],
       image: hobby.image && {
         src: hobby.image.src,
-        alt: hobby.image.alt[CURRENT_LANG],
+        alt: hobby.image.alt[lang],
       },
     })),
   }

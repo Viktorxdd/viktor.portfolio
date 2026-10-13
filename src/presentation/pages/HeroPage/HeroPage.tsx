@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useDocumentTitle } from '../../../logic/hooks/useDocumentTitle'
 import { useRevealCount } from '../../../logic/hooks/useRevealCount'
 import { useTypewriter } from '../../../logic/hooks/useTypewriter'
+import { useTranslations } from '../../../logic/i18n/useTranslations'
 import { getSlideDirection } from '../../../logic/navigation/slideDirection'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
+import LanguageToggle from '../../components/LanguageToggle/LanguageToggle'
 import SlideLink from '../../components/SlideLink/SlideLink'
 import styles from './HeroPage.module.css'
 
@@ -15,21 +18,13 @@ const REVEAL_HOLD_MS = 600
 // typing cycle, left empty in the meantime.
 const LIVE_STATUS_DELAY_MS = 2000
 
-const STATUS_WORDS = [
-  'student',
-  'developer',
-  'gamer',
-  'hockey enthusiast',
-  'looking for work',
-]
-
 const SECTION_LINKS = [
-  { to: '/about', label: 'about' },
-  { to: '/projects', label: 'projects' },
-  { to: '/experience', label: 'experience' },
-  { to: '/tech-stack', label: 'tech-stack' },
-  { to: '/contact', label: 'contact' },
-]
+  { to: '/about', key: 'about' },
+  { to: '/projects', key: 'projects' },
+  { to: '/experience', key: 'experience' },
+  { to: '/tech-stack', key: 'techStack' },
+  { to: '/contact', key: 'contact' },
+] as const
 
 type Segment = { text: string; tone?: 'muted' | 'accent' }
 
@@ -73,25 +68,23 @@ const NAV_WORD_PAUSE_TICKS = 4
 // render. That reserves its final size and position in the same .nav row
 // the final version uses, so nothing resizes or re-centers as the text
 // fills in, and there's no jump when the live view takes over.
-const NAV_LINKS = (() => {
+// Built from the labels of the current language, since their lengths differ.
+function buildNavLinks(
+  labels: Record<(typeof SECTION_LINKS)[number]['key'], string>,
+) {
   let offset = 0
   return SECTION_LINKS.map((link, index) => {
     if (index > 0) {
       offset += NAV_WORD_PAUSE_TICKS
     }
-    const length = 1 + link.label.length
+    const label = labels[link.key]
+    const length = 1 + label.length
     const width = length + NAV_SLASH_MARGIN_CH
-    const entry = { ...link, length, width, offset }
+    const entry = { ...link, label, length, width, offset }
     offset += length
     return entry
   })
-})()
-
-const NAV_TOTAL_LENGTH =
-  NAV_LINKS[NAV_LINKS.length - 1].offset +
-  NAV_LINKS[NAV_LINKS.length - 1].length
-
-const INTRO_TOTAL_LENGTH = CODE_TOTAL_LENGTH + NAV_TOTAL_LENGTH
+}
 
 // Plain module-level flag, not React state: the module is only evaluated
 // once per real page load, so this survives client-side route changes
@@ -121,10 +114,18 @@ function toneClassName(tone: Segment['tone']) {
 }
 
 function HeroPage() {
+  const t = useTranslations()
+  useDocumentTitle()
+
+  const navLinks = useMemo(() => buildNavLinks(t.nav), [t.nav])
+  const navTotalLength =
+    navLinks[navLinks.length - 1].offset + navLinks[navLinks.length - 1].length
+  const introTotalLength = CODE_TOTAL_LENGTH + navTotalLength
+
   const [skipIntro] = useState(hasPlayedIntro)
 
   const { count: revealedCount, done: introDone } = useRevealCount({
-    total: skipIntro ? 0 : INTRO_TOTAL_LENGTH,
+    total: skipIntro ? 0 : introTotalLength,
   })
   const [showFinal, setShowFinal] = useState(skipIntro)
   const [liveStatusEnabled, setLiveStatusEnabled] = useState(skipIntro)
@@ -153,7 +154,7 @@ function HeroPage() {
   }, [skipIntro, showFinal])
 
   const status = useTypewriter({
-    words: STATUS_WORDS,
+    words: t.hero.statusWords,
     enabled: liveStatusEnabled,
   })
 
@@ -168,6 +169,10 @@ function HeroPage() {
         <span className={styles.accent}>guest</span>@viktor-portfolio
         <span className={styles.accent}>:~$</span> whoami
       </p>
+
+      <div className={styles.languageToggle}>
+        <LanguageToggle />
+      </div>
 
       <main className={styles.hero}>
         {showFinal ? (
@@ -202,7 +207,7 @@ function HeroPage() {
                   <span className={styles.slash} aria-hidden="true">
                     /
                   </span>
-                  {link.label}
+                  {t.nav[link.key]}
                 </SlideLink>
               ))}
             </nav>
@@ -222,7 +227,7 @@ function HeroPage() {
 
             {codeTypingDone && (
               <nav className={styles.nav} aria-label="Main">
-                {NAV_LINKS.map((link) => {
+                {navLinks.map((link) => {
                   const linkRevealed = Math.max(
                     0,
                     Math.min(navRevealed - link.offset, link.length),

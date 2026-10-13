@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslations } from '../../../logic/i18n/useTranslations'
 import styles from './CopyButton.module.css'
 
 type CopyButtonProps = {
@@ -10,6 +11,7 @@ const RESET_AFTER_MS = 2000
 
 function CopyButton({ text, label }: CopyButtonProps) {
   const [copied, setCopied] = useState(false)
+  const t = useTranslations()
 
   useEffect(() => {
     if (!copied) return
@@ -31,9 +33,11 @@ function CopyButton({ text, label }: CopyButtonProps) {
       type="button"
       className={styles.button}
       onClick={handleClick}
-      aria-label={`Copy ${label}`}
+      aria-label={t.copyButton.ariaLabel(label)}
     >
-      <span aria-live="polite">{copied ? 'copied' : 'copy'}</span>
+      <span aria-live="polite">
+        {copied ? t.copyButton.copied : t.copyButton.copy}
+      </span>
     </button>
   )
 }
