@@ -1,4 +1,5 @@
 import type { Project } from '../types/content'
+import { SITE_URL } from './profile'
 
 const PROJECTS: Project[] = [
   {
@@ -113,6 +114,7 @@ const PROJECTS: Project[] = [
         },
       },
     ],
+    liveUrl: SITE_URL,
     repoUrl: 'https://github.com/Viktorxdd/viktor.portfolio',
     isPrivate: false,
     date: '2026-10',
