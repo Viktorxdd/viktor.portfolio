@@ -14,19 +14,12 @@ const ABOUT: About = {
   hobbies: [
     {
       label: { sv: 'Bygga datorer', en: 'Building computers' },
-      image: {
-        src: '/images/computers.jpg',
-        alt: {
-          sv: 'Ett öppet datorchassi med tornkylare och grafikkort',
-          en: 'An open computer case with a tower cooler and graphics card',
-        },
-      },
       description: {
         sv: [
-          'Jag bygger datorer, mestadels till mig själv men också till nära och kära. Det är lite som ett pussel att få ihop alla delar, och när allt är kopplat och jag trycker på startknappen och det fungerar är det en liten dopaminkick. På Qbtech bytte jag även ut delar i laptops.',
+          'Jag bygger datorer, mestadels till mig själv men också till nära och kära. Det är lite som ett pussel, och när jag trycker på startknappen och allt fungerar får jag en liten dopaminkick. På Qbtech bytte jag även ut delar i laptops.',
         ],
         en: [
-          'I build computers, mostly for myself but also for friends and family. It’s a bit like a puzzle to get all the parts to fit together, and when everything is connected and I press the power button and it works, it’s a bit of a dopamine kick. At Qbtech I also replaced parts in laptops.',
+          'I build computers, mostly for myself but also for friends and family. It’s a bit like a puzzle, and when I press the power button and everything works, I get a bit of a dopamine kick. At Qbtech I also replaced parts in laptops.',
         ],
       },
     },
@@ -34,11 +27,11 @@ const ABOUT: About = {
       label: { sv: 'Dustforce', en: 'Dustforce' },
       description: {
         sv: [
-          'Jag spelar Dustforce, ett snabbt plattformsspel med en liten men engagerad community. Jag skapar egna banor under namnet Delo och har vunnit prispengar i communityns tävlingar. 2025 tog jag förstaplatsen i Map of the Year med banan Crimson Depths, och jag har även vunnit bästa Nexus 2021 (Toxic Runoff) och 2022 (Pulvis Vis) tillsammans med andra banbyggare.',
+          'Jag spelar Dustforce, ett snabbt plattformsspel med en liten men engagerad community. Jag skapar egna banor under namnet Delo och har vunnit prispengar i communityns tävlingar. 2025 tog jag förstaplatsen i Map of the Year med [Crimson Depths](https://atlas.dustforce.com/13235/crimson-depths), och jag har vunnit bästa Nexus 2021 ([Toxic Runoff](https://atlas.dustforce.com/tag/toxic-runoff-nexus)) och 2022 ([Pulvis Vis](https://atlas.dustforce.com/tag/pulvis-vis-nexus)) tillsammans med andra banbyggare. Jag har också gjort banor till communityns DLC. Den visuellt mest imponerande jag har gjort är [walls](https://atlas.dustforce.com/12699/walls), och i [Ray of Hope](https://atlas.dustforce.com/13938/ray-of-hope) gjorde jag allt det visuella.',
           'Banbyggandet har hjälpt mig att förstå vad andra som ska spela banan behöver, och att jobba med level design och att skapa teman.',
         ],
         en: [
-          'I play Dustforce, a fast-paced platformer with a small but dedicated community. I make my own levels under the name Delo and have won prize money in the community’s competitions. In 2025 I won first place in Map of the Year with the level Crimson Depths, and I’ve also won Best Nexus in 2021 (Toxic Runoff) and 2022 (Pulvis Vis) together with other level creators.',
+          'I play Dustforce, a fast-paced platformer with a small but dedicated community. I make my own levels under the name Delo and have won prize money in the community’s competitions. In 2025 I won first place in Map of the Year with [Crimson Depths](https://atlas.dustforce.com/13235/crimson-depths), and I’ve also won Best Nexus in 2021 ([Toxic Runoff](https://atlas.dustforce.com/tag/toxic-runoff-nexus)) and 2022 ([Pulvis Vis](https://atlas.dustforce.com/tag/pulvis-vis-nexus)) together with other level creators. I’ve also made levels for the community’s DLCs. The most visually impressive one I’ve made is [walls](https://atlas.dustforce.com/12699/walls), and in [Ray of Hope](https://atlas.dustforce.com/13938/ray-of-hope) I made all the visuals.',
           'Building levels has helped me understand what the people playing them need, and to work with level design and theme creation.',
         ],
       },

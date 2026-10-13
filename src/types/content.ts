@@ -28,8 +28,7 @@ export type Experience = {
 
 export type Hobby = {
   label: Localized<string>
-  description: Localized<string[]> // one array element per paragraph
-  image?: { src: string; alt: Localized<string> } // placeholder shown if missing
+  description: Localized<string[]> // one array element per paragraph, may contain [text](https://…) links
 }
 
 export type About = {
