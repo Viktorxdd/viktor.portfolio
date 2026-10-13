@@ -4,6 +4,7 @@ import { useProject } from '../../../logic/hooks/useProject'
 import { useTranslations } from '../../../logic/i18n/useTranslations'
 import { getSlideDirection } from '../../../logic/navigation/slideDirection'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
+import ImageCarousel from '../../components/ImageCarousel/ImageCarousel'
 import Navbar from '../../components/Navbar/Navbar'
 import SlideLink from '../../components/SlideLink/SlideLink'
 import NotFoundPage from '../NotFoundPage/NotFoundPage'
@@ -42,22 +43,10 @@ function ProjectDetailPage() {
         </header>
 
         {project.images.length > 0 ? (
-          <div
-            className={styles.gallery}
-            role="region"
-            aria-label={t.projects.galleryLabel(project.title)}
-            tabIndex={0}
-          >
-            {project.images.map((image, index) => (
-              <img
-                key={image.src}
-                src={image.src}
-                alt={image.alt}
-                className={styles.galleryImage}
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-            ))}
-          </div>
+          <ImageCarousel
+            images={project.images}
+            label={t.projects.galleryLabel(project.title)}
+          />
         ) : (
           <div className={styles.imagePlaceholder} aria-hidden="true">
             image
