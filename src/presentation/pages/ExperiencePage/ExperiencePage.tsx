@@ -36,7 +36,12 @@ function ExperiencePage() {
 
             <p className={styles.entryOrganization}>{entry.organization}</p>
             <ul className={styles.entryPoints}>
-              {entry.description.map((point, index) => (
+              {[
+                ...entry.description,
+                ...(entry.tech
+                  ? [`${t.experience.techLabel}: ${entry.tech.join(', ')}.`]
+                  : []),
+              ].map((point, index) => (
                 <li key={index} className={styles.entryPoint}>
                   {point}
                 </li>

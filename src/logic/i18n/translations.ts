@@ -42,6 +42,7 @@ const sv = {
   },
   experience: {
     ongoing: 'pågående',
+    techLabel: 'Teknik',
   },
   techStack: {
     categories: {
@@ -130,6 +131,7 @@ const en: Translations = {
   },
   experience: {
     ongoing: 'ongoing',
+    techLabel: 'Tech',
   },
   techStack: {
     categories: {

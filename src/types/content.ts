@@ -25,6 +25,8 @@ export type Experience = {
   start: string // ISO, e.g. "2024-08"
   end?: string // missing = ongoing
   description: Localized<string[]> // one array element per bullet point
+  tech?: string[] // shown as its own "Tech: ..." line, not as a bullet
+  project?: string // slug of the project that covers this work, so the CV can skip repeating its tech
 }
 
 export type Hobby = {

@@ -103,6 +103,11 @@ function CvPage() {
                   <li key={index}>{point}</li>
                 ))}
               </ul>
+              {entry.tech && !entry.project && (
+                <p className={styles.tech}>
+                  {t.experience.techLabel}: {entry.tech.join(', ')}
+                </p>
+              )}
             </article>
           ))}
         </section>
