@@ -13,6 +13,24 @@ const ABOUT: About = {
   },
   hobbies: [
     {
+      label: { sv: 'Bygga datorer', en: 'Building computers' },
+      image: {
+        src: '/images/computers.jpg',
+        alt: {
+          sv: 'Ett öppet datorchassi med tornkylare och grafikkort',
+          en: 'An open computer case with a tower cooler and graphics card',
+        },
+      },
+      description: {
+        sv: [
+          'Jag bygger datorer, mestadels till mig själv men också till nära och kära. Det är lite som ett pussel att få ihop alla delar, och när allt är kopplat och jag trycker på startknappen och det fungerar är det en liten dopaminkick. På Qbtech bytte jag även ut delar i laptops.',
+        ],
+        en: [
+          'I build computers, mostly for myself but also for friends and family. It’s a bit like a puzzle to get all the parts to fit together, and when everything is connected and I press the power button and it works, it’s a bit of a dopamine kick. At Qbtech I also replaced parts in laptops.',
+        ],
+      },
+    },
+    {
       label: { sv: 'Dustforce', en: 'Dustforce' },
       description: {
         sv: [
@@ -29,10 +47,10 @@ const ABOUT: About = {
       label: { sv: 'World of Warcraft', en: 'World of Warcraft' },
       description: {
         sv: [
-          'Jag spelar World of Warcraft och är väldigt tävlingsinriktad. Jag planerar en egen hemsida kring spelet, men projektet är i ett väldigt tidigt skede.',
+          'Jag spelar World of Warcraft och är väldigt tävlingsinriktad. Jag planerar en egen hemsida som visar statistik för svenska spelare och guilds, till exempel hur bra de presterar i raids, med data från WarcraftLogs och WoWProgress. Projektet är i ett väldigt tidigt skede.',
         ],
         en: [
-          'I play World of Warcraft and I’m very competitive. I’m planning a website of my own around the game, but the project is at a very early stage.',
+          'I play World of Warcraft and I’m very competitive. I’m planning a website of my own that shows stats for Swedish players and guilds, such as how well they perform in raids, using data from WarcraftLogs and WoWProgress. The project is at a very early stage.',
         ],
       },
     },
