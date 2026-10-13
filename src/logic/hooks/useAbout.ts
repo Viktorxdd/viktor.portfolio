@@ -6,7 +6,6 @@ export type LocalizedAbout = {
   hobbies: {
     label: string
     description: string[]
-    image?: { src: string; alt: string }
   }[]
 }
 
@@ -19,10 +18,6 @@ export function useAbout(): LocalizedAbout {
     hobbies: about.hobbies.map((hobby) => ({
       label: hobby.label[lang],
       description: hobby.description[lang],
-      image: hobby.image && {
-        src: hobby.image.src,
-        alt: hobby.image.alt[lang],
-      },
     })),
   }
 }
