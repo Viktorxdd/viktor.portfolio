@@ -7,6 +7,10 @@ export const LINKEDIN_URL =
 // Shown on the CV and used as the portfolio project's live link.
 export const SITE_URL: string | undefined = 'https://viktorliljegren.dev'
 
-// Path to the CV once it exists, e.g. '/cv.pdf' (file goes in public/).
-// Until then the contact page shows a placeholder.
-export const CV_URL: string | undefined = undefined
+// The public CVs (without a phone number), one per language. The files live
+// in public/ and are exported from the /cv page. Set to undefined to show a
+// placeholder on the contact page instead.
+export const CV_URLS: { sv: string; en: string } | undefined = {
+  sv: '/viktor-liljegren-cv-sv.pdf',
+  en: '/viktor-liljegren-cv-en.pdf',
+}

@@ -1,5 +1,5 @@
 import {
-  CV_URL,
+  CV_URLS,
   EMAIL,
   GITHUB_URL,
   LINKEDIN_URL,
@@ -11,7 +11,7 @@ export function useProfile() {
     email: EMAIL,
     githubUrl: GITHUB_URL,
     linkedinUrl: LINKEDIN_URL,
-    cvUrl: CV_URL,
+    cvUrls: CV_URLS,
     siteUrl: SITE_URL,
   }
 }
