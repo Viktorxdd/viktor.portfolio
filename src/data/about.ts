@@ -40,10 +40,10 @@ const ABOUT: About = {
       label: { sv: 'World of Warcraft', en: 'World of Warcraft' },
       description: {
         sv: [
-          'Jag spelar World of Warcraft och är väldigt tävlingsinriktad. Jag planerar en egen hemsida som visar statistik för svenska spelare och guilds, till exempel hur bra de presterar i raids, med data från WarcraftLogs och WoWProgress. Projektet är i ett väldigt tidigt skede.',
+          'Jag spelar World of Warcraft och är väldigt tävlingsinriktad. Jag har börjat med designen av en egen hemsida som visar statistik för svenska spelare och guilds, till exempel hur bra de presterar i raids, med data från WarcraftLogs och WoWProgress.',
         ],
         en: [
-          'I play World of Warcraft and I’m very competitive. I’m planning a website of my own that shows stats for Swedish players and guilds, such as how well they perform in raids, using data from WarcraftLogs and WoWProgress. The project is at a very early stage.',
+          'I play World of Warcraft and I’m very competitive. I’ve started on the design of a website of my own that shows stats for Swedish players and guilds, such as how well they perform in raids, using data from WarcraftLogs and WoWProgress.',
         ],
       },
     },
