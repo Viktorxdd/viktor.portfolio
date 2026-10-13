@@ -64,7 +64,23 @@ const sv = {
     ariaLabel: (label: string) => `Kopiera ${label}`,
   },
   notFound: {
-    title: '404 – Sidan hittades inte',
+    title: '404: Sidan hittades inte',
+  },
+  cv: {
+    role: 'Fullstack-utvecklare',
+    summary:
+      'Under utbildning till fullstack-utvecklare, med flera års erfarenhet av teknisk support. Jag bygger just nu en webbplattform på Irori Security och är van att arbeta under tidspress och prestera under den.',
+    headings: {
+      experience: 'erfarenhet',
+      education: 'utbildning',
+      projects: 'projekt',
+      skills: 'kompetenser',
+      languages: 'språk',
+    },
+    languages: [
+      { name: 'Svenska', level: 'modersmål' },
+      { name: 'Engelska', level: 'flytande (C2)' },
+    ],
   },
 }
 
@@ -125,7 +141,7 @@ const en: Translations = {
     },
   },
   contact: {
-    intro: 'I’m looking for a job as a developer. Feel free to get in touch!',
+    intro: "I'm looking for a job as a developer. Get in touch!",
     email: 'email',
     emailAddress: 'email address',
     cvPlaceholder: 'coming soon',
@@ -136,7 +152,23 @@ const en: Translations = {
     ariaLabel: (label: string) => `Copy ${label}`,
   },
   notFound: {
-    title: '404 – Page not found',
+    title: '404: Page not found',
+  },
+  cv: {
+    role: 'Full-stack developer',
+    summary:
+      "In training to become a full-stack developer, with several years of experience in technical support. I'm currently building a web platform at Irori Security and I'm used to working under time pressure and performing under it.",
+    headings: {
+      experience: 'experience',
+      education: 'education',
+      projects: 'projects',
+      skills: 'skills',
+      languages: 'languages',
+    },
+    languages: [
+      { name: 'Swedish', level: 'native' },
+      { name: 'English', level: 'fluent (C2)' },
+    ],
   },
 }
 

@@ -4,8 +4,8 @@ const EXPERIENCE: Experience[] = [
   {
     type: 'work',
     title: {
-      sv: 'LIA 2 – utvecklare',
-      en: 'Internship 2 (LIA) – developer',
+      sv: 'LIA 2, utvecklare',
+      en: 'Internship 2 (LIA), developer',
     },
     organization: 'Irori Security',
     start: '2026-08',
@@ -42,8 +42,8 @@ const EXPERIENCE: Experience[] = [
   {
     type: 'work',
     title: {
-      sv: 'LIA 1 – utvecklare',
-      en: 'Internship 1 (LIA) – developer',
+      sv: 'LIA 1, utvecklare',
+      en: 'Internship 1 (LIA), developer',
     },
     organization: 'Irori Security',
     start: '2025-10',
@@ -70,20 +70,20 @@ const EXPERIENCE: Experience[] = [
     end: '2023-08',
     description: {
       sv: [
-        'Skötte Europas kundsupport själv.',
+        'Skötte företagets europeiska kundsupport själv.',
         'Svarade på ärenden via mejl och telefon och tog egna beslut på nivå 1 och 2.',
         'Skapade en process för lagerhantering.',
-        'Hjälpte till att planera kontoret i USA enligt ISO/NCR.',
+        'Hjälpte till att planera utbyggnaden av kontoret i USA enligt ISO/NCR.',
         'Gav kundfeedback till produkt- och utvecklingsteamen.',
-        'Hjälpte till vid externa revisioner.',
+        'Bidrog till externa revisioner och förbättrade interna processer.',
       ],
       en: [
-        'Managed the European customer support on my own.',
+        "Managed the company's European customer support on my own.",
         'Answered tickets by email and phone and made my own decisions on level 1 and 2 tickets.',
         'Created an inventory management process.',
-        'Helped plan the US office according to ISO/NCR requirements.',
+        'Helped plan the US office expansion according to ISO/NCR requirements.',
         'Gave customer feedback to the product and engineering teams.',
-        'Helped out during external audits.',
+        'Contributed to external audits and improved internal processes.',
       ],
     },
   },
@@ -100,7 +100,7 @@ const EXPERIENCE: Experience[] = [
       sv: [
         'Telefon- och chattsupport mot privatkunder.',
         'Hanterade flera ärenden samtidigt, ibland upp till tre chattar åt gången.',
-        'Kundnöjdhet över 90 % över tusentals ärenden.',
+        'Kundnöjdhet över 90 % på tusentals ärenden.',
         'Befordrad två gånger, först till en specialistroll och sedan till ett dedikerat chattteam.',
         'Arbetade efter strikta SLA:er och GDPR-krav.',
       ],

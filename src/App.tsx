@@ -7,6 +7,7 @@ import ExperiencePage from './presentation/pages/ExperiencePage/ExperiencePage'
 import TechStackPage from './presentation/pages/TechStackPage/TechStackPage'
 import ContactPage from './presentation/pages/ContactPage/ContactPage'
 import NotFoundPage from './presentation/pages/NotFoundPage/NotFoundPage'
+import CvPage from './presentation/pages/CvPage/CvPage'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/experience" element={<ExperiencePage />} />
       <Route path="/tech-stack" element={<TechStackPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/cv" element={<CvPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )

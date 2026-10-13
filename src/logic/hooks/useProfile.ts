@@ -1,4 +1,10 @@
-import { CV_URL, EMAIL, GITHUB_URL, LINKEDIN_URL } from '../../data/profile'
+import {
+  CV_URL,
+  EMAIL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  SITE_URL,
+} from '../../data/profile'
 
 export function useProfile() {
   return {
@@ -6,5 +12,6 @@ export function useProfile() {
     githubUrl: GITHUB_URL,
     linkedinUrl: LINKEDIN_URL,
     cvUrl: CV_URL,
+    siteUrl: SITE_URL,
   }
 }
