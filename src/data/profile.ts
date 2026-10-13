@@ -5,7 +5,7 @@ export const LINKEDIN_URL =
 
 // Address of the live site once it is deployed, e.g. 'https://example.com'.
 // Shown on the CV and used as the portfolio project's live link.
-export const SITE_URL: string | undefined = undefined
+export const SITE_URL: string | undefined = 'https://viktorliljegren.dev'
 
 // Path to the CV once it exists, e.g. '/cv.pdf' (file goes in public/).
 // Until then the contact page shows a placeholder.
