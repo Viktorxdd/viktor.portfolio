@@ -1,10 +1,14 @@
 import { useAbout } from '../../../logic/hooks/useAbout'
+import { useDocumentTitle } from '../../../logic/hooks/useDocumentTitle'
+import { useTranslations } from '../../../logic/i18n/useTranslations'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
 import styles from './AboutPage.module.css'
 
 function AboutPage() {
   const { bio, hobbies } = useAbout()
+  const t = useTranslations()
+  useDocumentTitle(t.pageTitles.about)
 
   return (
     <div className={styles.page}>
@@ -31,7 +35,7 @@ function AboutPage() {
           </div>
         </div>
 
-        <h2 className={styles.sectionHeading}>hobbies</h2>
+        <h2 className={styles.sectionHeading}>{t.headings.hobbies}</h2>
 
         {hobbies.map((hobby) => (
           <section key={hobby.label} className={styles.hobbySection}>

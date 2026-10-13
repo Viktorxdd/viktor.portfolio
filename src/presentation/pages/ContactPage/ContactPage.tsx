@@ -1,12 +1,10 @@
+import { useDocumentTitle } from '../../../logic/hooks/useDocumentTitle'
 import { useProfile } from '../../../logic/hooks/useProfile'
+import { useTranslations } from '../../../logic/i18n/useTranslations'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import CopyButton from '../../components/CopyButton/CopyButton'
 import Navbar from '../../components/Navbar/Navbar'
 import styles from './ContactPage.module.css'
-
-// Hardcoded until LanguageProvider exists — move to translations.ts then.
-const INTRO = 'Jag söker jobb som utvecklare. Hör gärna av dig!'
-const CV_PLACEHOLDER = 'kommer snart'
 
 function withoutProtocol(url: string): string {
   return url.replace(/^https?:\/\/(www\.)?/, '')
@@ -14,6 +12,8 @@ function withoutProtocol(url: string): string {
 
 function ContactPage() {
   const { email, githubUrl, linkedinUrl, cvUrl } = useProfile()
+  const t = useTranslations()
+  useDocumentTitle(t.pageTitles.contact)
 
   return (
     <div className={styles.page}>
@@ -25,18 +25,18 @@ function ContactPage() {
           <span className={styles.accent}>:~/contact$</span> cat contact.md
         </p>
 
-        <h1 className={styles.heading}>contact</h1>
+        <h1 className={styles.heading}>{t.headings.contact}</h1>
 
-        <p className={styles.intro}>{INTRO}</p>
+        <p className={styles.intro}>{t.contact.intro}</p>
 
         <dl className={styles.list}>
           <div className={styles.row}>
-            <dt className={styles.label}>email</dt>
+            <dt className={styles.label}>{t.contact.email}</dt>
             <dd className={styles.value}>
               <a href={`mailto:${email}`} className={styles.link}>
                 {email}
               </a>
-              <CopyButton text={email} label="email address" />
+              <CopyButton text={email} label={t.contact.emailAddress} />
             </dd>
           </div>
 
@@ -76,7 +76,9 @@ function ContactPage() {
                   {cvUrl.split('/').pop()}
                 </a>
               ) : (
-                <span className={styles.placeholder}>{CV_PLACEHOLDER}</span>
+                <span className={styles.placeholder}>
+                  {t.contact.cvPlaceholder}
+                </span>
               )}
             </dd>
           </div>

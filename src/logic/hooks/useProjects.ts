@@ -1,9 +1,6 @@
 import { getAllProjects } from '../../data/projects'
-import type { Project } from '../../types/content'
-
-// Hardcoded until LanguageProvider exists — swap for useLanguage()'s lang
-// once it does, nothing else here needs to change.
-const CURRENT_LANG = 'sv'
+import type { Language, Project } from '../../types/content'
+import { useLanguage } from '../i18n/useLanguage'
 
 export type LocalizedProject = Omit<
   Project,
@@ -16,20 +13,25 @@ export type LocalizedProject = Omit<
   images: { src: string; alt: string }[]
 }
 
-export function localizeProject(project: Project): LocalizedProject {
+export function localizeProject(
+  project: Project,
+  lang: Language,
+): LocalizedProject {
   return {
     ...project,
-    title: project.title[CURRENT_LANG],
-    summary: project.summary[CURRENT_LANG],
-    description: project.description[CURRENT_LANG],
-    role: project.role?.[CURRENT_LANG],
+    title: project.title[lang],
+    summary: project.summary[lang],
+    description: project.description[lang],
+    role: project.role?.[lang],
     images: project.images.map((image) => ({
       src: image.src,
-      alt: image.alt[CURRENT_LANG],
+      alt: image.alt[lang],
     })),
   }
 }
 
 export function useProjects(): LocalizedProject[] {
-  return getAllProjects().map(localizeProject)
+  const { lang } = useLanguage()
+
+  return getAllProjects().map((project) => localizeProject(project, lang))
 }

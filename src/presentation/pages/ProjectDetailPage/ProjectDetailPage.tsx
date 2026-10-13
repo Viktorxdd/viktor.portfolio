@@ -1,5 +1,7 @@
 import { useLocation, useParams } from 'react-router'
+import { useDocumentTitle } from '../../../logic/hooks/useDocumentTitle'
 import { useProject } from '../../../logic/hooks/useProject'
+import { useTranslations } from '../../../logic/i18n/useTranslations'
 import { getSlideDirection } from '../../../logic/navigation/slideDirection'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
@@ -11,6 +13,8 @@ function ProjectDetailPage() {
   const { slug } = useParams()
   const project = useProject(slug)
   const { pathname } = useLocation()
+  const t = useTranslations()
+  useDocumentTitle(project?.title)
 
   if (!project) {
     return <NotFoundPage />
@@ -26,7 +30,7 @@ function ProjectDetailPage() {
           direction={getSlideDirection(pathname, '/projects')}
           className={styles.back}
         >
-          &larr; projects
+          &larr; {t.projects.back}
         </SlideLink>
 
         <header className={styles.header}>
@@ -41,7 +45,7 @@ function ProjectDetailPage() {
           <div
             className={styles.gallery}
             role="region"
-            aria-label={`${project.title} images`}
+            aria-label={t.projects.galleryLabel(project.title)}
             tabIndex={0}
           >
             {project.images.map((image, index) => (
@@ -70,7 +74,7 @@ function ProjectDetailPage() {
 
         <section className={styles.section} aria-labelledby="tech-heading">
           <h2 id="tech-heading" className={styles.sectionHeading}>
-            tech
+            {t.projects.tech}
           </h2>
           <ul className={styles.techList}>
             {project.tech.map((tech) => (
@@ -89,7 +93,7 @@ function ProjectDetailPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              repo
+              {t.projects.repo}
             </a>
           )}
           {project.liveUrl && (
@@ -99,11 +103,11 @@ function ProjectDetailPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              live
+              {t.projects.live}
             </a>
           )}
           {project.isPrivate && (
-            <span className={styles.privateNote}>private repo</span>
+            <span className={styles.privateNote}>{t.projects.privateRepo}</span>
           )}
         </div>
       </main>

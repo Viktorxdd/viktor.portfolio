@@ -1,4 +1,6 @@
-export type Localized<T> = { sv: T; en: T }
+export type Language = 'sv' | 'en'
+
+export type Localized<T> = Record<Language, T>
 
 export type Project = {
   slug: string

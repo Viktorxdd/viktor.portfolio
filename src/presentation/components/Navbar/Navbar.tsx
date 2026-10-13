@@ -1,18 +1,21 @@
 import { useLocation } from 'react-router'
+import { useTranslations } from '../../../logic/i18n/useTranslations'
 import { getSlideDirection } from '../../../logic/navigation/slideDirection'
+import LanguageToggle from '../LanguageToggle/LanguageToggle'
 import SlideLink from '../SlideLink/SlideLink'
 import styles from './Navbar.module.css'
 
 const SECTION_LINKS = [
-  { to: '/about', label: 'about' },
-  { to: '/projects', label: 'projects' },
-  { to: '/experience', label: 'experience' },
-  { to: '/tech-stack', label: 'tech-stack' },
-  { to: '/contact', label: 'contact' },
-]
+  { to: '/about', key: 'about' },
+  { to: '/projects', key: 'projects' },
+  { to: '/experience', key: 'experience' },
+  { to: '/tech-stack', key: 'techStack' },
+  { to: '/contact', key: 'contact' },
+] as const
 
 function Navbar() {
   const location = useLocation()
+  const t = useTranslations()
 
   return (
     <header className={styles.header}>
@@ -39,11 +42,13 @@ function Navbar() {
               <span className={styles.slash} aria-hidden="true">
                 /
               </span>
-              {link.label}
+              {t.nav[link.key]}
             </SlideLink>
           ),
         )}
       </nav>
+
+      <LanguageToggle />
     </header>
   )
 }

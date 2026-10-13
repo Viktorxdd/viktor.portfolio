@@ -1,13 +1,14 @@
+import { useDocumentTitle } from '../../../logic/hooks/useDocumentTitle'
 import { useExperience } from '../../../logic/hooks/useExperience'
+import { useTranslations } from '../../../logic/i18n/useTranslations'
 import ContactFooter from '../../components/ContactFooter/ContactFooter'
 import Navbar from '../../components/Navbar/Navbar'
 import styles from './ExperiencePage.module.css'
 
-// Hardcoded until LanguageProvider exists — move to translations.ts then.
-const ONGOING_LABEL = 'pågående'
-
 function ExperiencePage() {
   const experience = useExperience()
+  const t = useTranslations()
+  useDocumentTitle(t.pageTitles.experience)
 
   return (
     <div className={styles.page}>
@@ -19,7 +20,7 @@ function ExperiencePage() {
           <span className={styles.accent}>:~/experience$</span> ls -l
         </p>
 
-        <h1 className={styles.heading}>experience</h1>
+        <h1 className={styles.heading}>{t.headings.experience}</h1>
 
         {experience.map((entry) => (
           <section
@@ -29,7 +30,7 @@ function ExperiencePage() {
             <div className={styles.entryHeader}>
               <h2 className={styles.entryTitle}>{entry.title}</h2>
               <p className={styles.entryPeriod}>
-                {entry.start} – {entry.end ?? ONGOING_LABEL}
+                {entry.start} – {entry.end ?? t.experience.ongoing}
               </p>
             </div>
 
