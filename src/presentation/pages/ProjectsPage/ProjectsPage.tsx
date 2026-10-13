@@ -28,9 +28,18 @@ function ProjectsPage() {
 
         {projects.map((project) => (
           <section key={project.slug} className={styles.projectSection}>
-            <div className={styles.imagePlaceholder} aria-hidden="true">
-              image
-            </div>
+            {project.images[0] ? (
+              <img
+                className={styles.image}
+                src={project.images[0].src}
+                alt={project.images[0].alt}
+                loading="lazy"
+              />
+            ) : (
+              <div className={styles.imagePlaceholder} aria-hidden="true">
+                image
+              </div>
+            )}
 
             <div className={styles.projectText}>
               <h2 className={styles.projectTitle}>
