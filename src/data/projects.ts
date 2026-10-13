@@ -15,10 +15,12 @@ const PROJECTS: Project[] = [
       sv: [
         'Yokoten är interna presentationer på Irori där medarbetare delar kunskap med varandra. Plattformen hanterar hela flödet: man ansöker om att hålla en presentation, administratörer godkänner och bokar datum, och övriga anmäler sig som deltagare.',
         'Jag bygger den ensam under min LIA hos Irori Security, med en handledare som hjälper mig. Backend byggs fortfarande.',
+        'Skärmbilderna visar frontend med mockdata. Alla namn och uppgifter är påhittade.',
       ],
       en: [
         'Yokoten are internal presentations at Irori where employees share knowledge with each other. The platform handles the whole flow: you apply to give a presentation, admins approve it and book a date, and everyone else can sign up to attend.',
         'I’m building it on my own during my internship (LIA) at Irori Security, with a supervisor who helps me. The backend is still being built.',
+        'The screenshots show the frontend with mock data. All names and information are made up.',
       ],
     },
     role: {
@@ -35,7 +37,43 @@ const PROJECTS: Project[] = [
       'Bicep',
       'Claude Code',
     ],
-    images: [],
+    images: [
+      {
+        src: '/images/yokoten-home.jpg',
+        alt: {
+          sv: 'Yokotens startsida med nästa Yokoten och ett formulär för att ansöka',
+          en: 'The Yokoten start page with the next Yokoten and a form to apply',
+        },
+      },
+      {
+        src: '/images/yokoten-upcoming.jpg',
+        alt: {
+          sv: 'Kommande Yokoten som kort med RSVP, och föregående session',
+          en: 'Upcoming Yokotens as cards with RSVP, and the previous session',
+        },
+      },
+      {
+        src: '/images/yokoten-archive.jpg',
+        alt: {
+          sv: 'Arkivet med tidigare Yokoten, filter och sökfält',
+          en: 'The archive of past Yokotens with filters and search',
+        },
+      },
+      {
+        src: '/images/yokoten-leaderboard.jpg',
+        alt: {
+          sv: 'Leaderboard med flest hållna Yokoten och längsta serier',
+          en: 'The leaderboard with most Yokotens held and longest streaks',
+        },
+      },
+      {
+        src: '/images/yokoten-profile.jpg',
+        alt: {
+          sv: 'Profilsida med statistik och RSVP-översikt',
+          en: 'A profile page with stats and an RSVP overview',
+        },
+      },
+    ],
     isPrivate: true,
     date: '2026-08',
     featured: true,
