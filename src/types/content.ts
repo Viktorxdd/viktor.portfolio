@@ -24,6 +24,17 @@ export type Experience = {
   description: Localized<string[]> // one array element per bullet point
 }
 
+export type Hobby = {
+  label: Localized<string>
+  description: Localized<string[]> // one array element per paragraph
+  image?: { src: string; alt: Localized<string> } // placeholder shown if missing
+}
+
+export type About = {
+  bio: Localized<string[]> // one array element per paragraph
+  hobbies: Hobby[]
+}
+
 export type TechCategory =
   | 'language'
   | 'framework'
