@@ -9,6 +9,7 @@ Detaljerade regler ligger i projektets skills (`.claude/skills/`). Använd dem n
 - `portfolio-design` – terminal-tema, design-tokens, typografi-skala, CSS Modules, responsivitet, Navbar/layout
 - `portfolio-i18n` – LanguageProvider, `translations.ts`, språkväxlare, `document.title`
 - `portfolio-data` – `Project`/`Experience`/`TechItem`/`Localized<T>`, `src/data/`
+- `handledare` – arbetssättet: resonera, fråga, lägg fram alternativ, skriv läsbar kod, och reglerna för 3-tier-strukturen
 
 ## Viktiga beslut
 
@@ -45,7 +46,7 @@ Detaljerade regler ligger i projektets skills (`.claude/skills/`). Använd dem n
 
 ## Mappstruktur (3-tier)
 
-Beroenden går bara nedåt: presentation → logik → data.
+Beroenden går bara nedåt: presentation → logik → data. Se skillen `handledare` för reglerna.
 
 ```
 src/
@@ -79,7 +80,7 @@ public/
 
 ## Arbetssätt
 
-Fråga när något är oklart, lägg fram alternativ, resonera istället för att bara hålla med, och skriv läsbar kod. Committa, pusha och skapa PR bara när jag ber om det.
+Använd alltid skillen `handledare`: fråga när något är oklart, lägg fram alternativ, resonera istället för att bara hålla med, och skriv läsbar kod. Committa, pusha och skapa PR bara när jag ber om det.
 
 ## Kvalitetskrav
 
