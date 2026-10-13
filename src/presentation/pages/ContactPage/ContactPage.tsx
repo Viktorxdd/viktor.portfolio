@@ -11,7 +11,7 @@ function withoutProtocol(url: string): string {
 }
 
 function ContactPage() {
-  const { email, githubUrl, linkedinUrl, cvUrl } = useProfile()
+  const { email, githubUrl, linkedinUrl, cvUrls } = useProfile()
   const t = useTranslations()
   useDocumentTitle(t.pageTitles.contact)
 
@@ -71,10 +71,18 @@ function ContactPage() {
           <div className={styles.row}>
             <dt className={styles.label}>cv</dt>
             <dd className={styles.value}>
-              {cvUrl ? (
-                <a href={cvUrl} className={styles.link} download>
-                  {cvUrl.split('/').pop()}
-                </a>
+              {cvUrls ? (
+                (['sv', 'en'] as const).map((lang) => (
+                  <a
+                    key={lang}
+                    href={cvUrls[lang]}
+                    className={styles.link}
+                    aria-label={t.contact.cvDownload(lang)}
+                    download
+                  >
+                    {lang}
+                  </a>
+                ))
               ) : (
                 <span className={styles.placeholder}>
                   {t.contact.cvPlaceholder}

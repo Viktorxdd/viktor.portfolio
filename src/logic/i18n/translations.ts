@@ -42,6 +42,7 @@ const sv = {
   },
   experience: {
     ongoing: 'pågående',
+    techLabel: 'Teknik',
   },
   techStack: {
     categories: {
@@ -57,6 +58,8 @@ const sv = {
     email: 'e-post',
     emailAddress: 'e-postadress',
     cvPlaceholder: 'kommer snart',
+    cvDownload: (lang: 'sv' | 'en') =>
+      `Ladda ner CV på ${lang === 'sv' ? 'svenska' : 'engelska'}`,
   },
   copyButton: {
     copy: 'kopiera',
@@ -130,6 +133,7 @@ const en: Translations = {
   },
   experience: {
     ongoing: 'ongoing',
+    techLabel: 'Tech',
   },
   techStack: {
     categories: {
@@ -145,6 +149,8 @@ const en: Translations = {
     email: 'email',
     emailAddress: 'email address',
     cvPlaceholder: 'coming soon',
+    cvDownload: (lang: 'sv' | 'en') =>
+      `Download CV in ${lang === 'sv' ? 'Swedish' : 'English'}`,
   },
   copyButton: {
     copy: 'copy',

@@ -13,14 +13,22 @@ const EXPERIENCE: Experience[] = [
       sv: [
         'Bygger en webbplattform för Yokoten, interna presentationer där medarbetare delar kunskap med varandra.',
         'Man kan ansöka om att hålla en presentation, administratörer godkänner och bokar datum, och övriga anmäler sig som deltagare.',
-        'Teknik: Java, Spring Boot, React, TypeScript, Cosmos DB, Azure, Bicep.',
       ],
       en: [
         'Building a web platform for Yokoten, internal presentations where employees share knowledge with each other.',
         'You can apply to give a presentation, admins approve it and book a date, and everyone else can sign up to attend.',
-        'Tech: Java, Spring Boot, React, TypeScript, Cosmos DB, Azure, Bicep.',
       ],
     },
+    tech: [
+      'Java',
+      'Spring Boot',
+      'React',
+      'TypeScript',
+      'Cosmos DB',
+      'Azure',
+      'Bicep',
+    ],
+    project: 'yokoten',
   },
   {
     type: 'education',
@@ -49,15 +57,18 @@ const EXPERIENCE: Experience[] = [
     start: '2025-10',
     end: '2026-01',
     description: {
-      sv: [
-        'Byggde en intern webbplats för projektidéer.',
-        'Teknik: Azure Functions, Static Web Apps, Cosmos DB, MSAL, Bicep, C#, TypeScript.',
-      ],
-      en: [
-        'Created an internal website for project ideas.',
-        'Tech: Azure Functions, Static Web Apps, Cosmos DB, MSAL, Bicep, C#, TypeScript.',
-      ],
+      sv: ['Byggde en intern webbplats för projektidéer.'],
+      en: ['Created an internal website for project ideas.'],
     },
+    tech: [
+      'Azure Functions',
+      'Static Web Apps',
+      'Cosmos DB',
+      'MSAL',
+      'Bicep',
+      'C#',
+      'TypeScript',
+    ],
   },
   {
     type: 'work',
