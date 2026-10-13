@@ -2,59 +2,120 @@ import type { Project } from '../types/content'
 
 const PROJECTS: Project[] = [
   {
-    slug: 'placeholder-one',
+    slug: 'yokoten',
     title: {
-      sv: 'Platshållarprojekt ett',
-      en: 'Placeholder project one',
+      sv: 'Yokoten-plattformen',
+      en: 'The Yokoten platform',
     },
     summary: {
-      sv: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      en: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      sv: 'Webbplattform för att ansöka om, godkänna och boka Yokoten, interna presentationer där medarbetare delar kunskap.',
+      en: 'A web platform for applying for, approving and booking Yokoten, internal presentations where employees share knowledge.',
     },
     description: {
       sv: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.',
-        'Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.',
-        'Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi. Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc. Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna.',
+        'Yokoten är interna presentationer på Irori där medarbetare delar kunskap med varandra. Plattformen hanterar hela flödet: man ansöker om att hålla en presentation, administratörer godkänner och bokar datum, och övriga anmäler sig som deltagare.',
+        'Jag bygger den ensam under min LIA hos Irori Security, med en handledare som hjälper mig. Backend byggs fortfarande.',
+        'Skärmbilderna visar frontend med mockdata. Alla namn och uppgifter är påhittade.',
       ],
       en: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.',
-        'Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.',
-        'Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi. Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc. Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna.',
+        'Yokoten are internal presentations at Irori where employees share knowledge with each other. The platform handles the whole flow: you apply to give a presentation, admins approve it and book a date, and everyone else can sign up to attend.',
+        'I’m building it on my own during my internship (LIA) at Irori Security, with a supervisor who helps me. The backend is still being built.',
+        'The screenshots show the frontend with mock data. All names and information are made up.',
       ],
     },
-    tech: ['TypeScript', 'React'],
-    images: [],
-    isPrivate: false,
-    date: '2026-06',
+    role: {
+      sv: 'Utvecklare (LIA)',
+      en: 'Developer (internship)',
+    },
+    tech: [
+      'Java',
+      'Spring Boot',
+      'React',
+      'TypeScript',
+      'Cosmos DB',
+      'Azure',
+      'Bicep',
+      'Claude Code',
+    ],
+    images: [
+      {
+        src: '/images/yokoten-home.jpg',
+        alt: {
+          sv: 'Yokotens startsida med nästa Yokoten och ett formulär för att ansöka',
+          en: 'The Yokoten start page with the next Yokoten and a form to apply',
+        },
+      },
+      {
+        src: '/images/yokoten-upcoming.jpg',
+        alt: {
+          sv: 'Kommande Yokoten som kort med RSVP, och föregående session',
+          en: 'Upcoming Yokotens as cards with RSVP, and the previous session',
+        },
+      },
+      {
+        src: '/images/yokoten-archive.jpg',
+        alt: {
+          sv: 'Arkivet med tidigare Yokoten, filter och sökfält',
+          en: 'The archive of past Yokotens with filters and search',
+        },
+      },
+      {
+        src: '/images/yokoten-leaderboard.jpg',
+        alt: {
+          sv: 'Leaderboard med flest hållna Yokoten och längsta serier',
+          en: 'The leaderboard with most Yokotens held and longest streaks',
+        },
+      },
+      {
+        src: '/images/yokoten-profile.jpg',
+        alt: {
+          sv: 'Profilsida med statistik och RSVP-översikt',
+          en: 'A profile page with stats and an RSVP overview',
+        },
+      },
+    ],
+    thumbnail: '/images/yokoten-home-thumb.jpg',
+    isPrivate: true,
+    date: '2026-08',
     featured: true,
   },
   {
-    slug: 'placeholder-two',
+    slug: 'portfolio',
     title: {
-      sv: 'Platshållarprojekt två',
-      en: 'Placeholder project two',
+      sv: 'Den här portfolion',
+      en: 'This portfolio',
     },
     summary: {
-      sv: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-      en: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+      sv: 'Min portfolio, byggd från grunden med terminaltema och stöd för svenska och engelska.',
+      en: 'My portfolio, built from scratch with a terminal theme and support for Swedish and English.',
     },
     description: {
       sv: [
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'Sidan du tittar på just nu. Den är helt statisk, utan backend, med terminalinspirerad design och en egen lösning för språkval.',
+        'Allt innehåll ligger som data i repot, så att lägga till ett projekt är att lägga till data och bilder.',
       ],
       en: [
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        'The site you’re looking at right now. It’s completely static, with no backend, a terminal-inspired design and a language switcher I built myself.',
+        'All the content lives as data in the repo, so adding a project means adding data and images.',
       ],
     },
-    tech: ['Java', 'Spring Boot'],
-    images: [],
-    isPrivate: true,
-    date: '2026-02',
+    role: {
+      sv: 'Design och utveckling',
+      en: 'Design and development',
+    },
+    tech: ['TypeScript', 'React', 'Vite', 'CSS', 'Claude Code'],
+    images: [
+      {
+        src: '/images/portfolio-hero.png',
+        alt: {
+          sv: 'Portfoliots startsida med ett kodblock, statusen "looking for work" och menyn',
+          en: 'The portfolio start page with a code block, the status "looking for work" and the menu',
+        },
+      },
+    ],
+    repoUrl: 'https://github.com/Viktorxdd/viktor.portfolio',
+    isPrivate: false,
+    date: '2026-10',
   },
 ]
 

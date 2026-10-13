@@ -36,6 +36,9 @@ const sv = {
     back: 'projekt',
     tech: 'teknik',
     galleryLabel: (title: string) => `Bilder från ${title}`,
+    previousImage: 'Föregående bild',
+    nextImage: 'Nästa bild',
+    imageOf: (current: number, total: number) => `Bild ${current} av ${total}`,
   },
   experience: {
     ongoing: 'pågående',
@@ -105,6 +108,9 @@ const en: Translations = {
     back: 'projects',
     tech: 'tech',
     galleryLabel: (title: string) => `Images from ${title}`,
+    previousImage: 'Previous image',
+    nextImage: 'Next image',
+    imageOf: (current: number, total: number) => `Image ${current} of ${total}`,
   },
   experience: {
     ongoing: 'ongoing',
