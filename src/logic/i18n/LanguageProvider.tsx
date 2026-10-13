@@ -9,7 +9,8 @@ function isLanguage(value: unknown): value is Language {
 }
 
 // ?lang= in the URL first (so a link can be shared in a given language),
-// then the saved choice, then the browser's language, then Swedish.
+// then the saved choice, then Swedish for Swedish browsers, English for
+// everyone else.
 function getInitialLanguage(): Language {
   const fromUrl = new URLSearchParams(window.location.search).get('lang')
   if (isLanguage(fromUrl)) {
@@ -25,7 +26,7 @@ function getInitialLanguage(): Language {
     // localStorage can be blocked, fall through to the browser language.
   }
 
-  return navigator.language.toLowerCase().startsWith('en') ? 'en' : 'sv'
+  return navigator.language.toLowerCase().startsWith('sv') ? 'sv' : 'en'
 }
 
 function LanguageProvider({ children }: { children: ReactNode }) {
