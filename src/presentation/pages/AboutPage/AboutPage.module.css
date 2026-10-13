@@ -33,37 +33,11 @@
   font-size: var(--font-size-h1);
 }
 
-.profileRow {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-@media (min-width: 768px) {
-  .profileRow {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-}
-
-.profilePlaceholder {
-  flex-shrink: 0;
-  width: 96px;
-  height: 96px;
-  border: 1px dashed var(--color-border);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-muted);
-  font-size: var(--font-size-xs);
-}
-
 .bioText {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .bio {

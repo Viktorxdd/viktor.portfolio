@@ -22,17 +22,12 @@ function AboutPage() {
 
         <h1 className={styles.heading}>Viktor Liljegren</h1>
 
-        <div className={styles.profileRow}>
-          <div className={styles.profilePlaceholder} aria-hidden="true">
-            profile.jpg
-          </div>
-          <div className={styles.bioText}>
-            {bio.map((paragraph, index) => (
-              <p key={index} className={styles.bio}>
-                {paragraph}
-              </p>
-            ))}
-          </div>
+        <div className={styles.bioText}>
+          {bio.map((paragraph, index) => (
+            <p key={index} className={styles.bio}>
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         <h2 className={styles.sectionHeading}>{t.headings.hobbies}</h2>
