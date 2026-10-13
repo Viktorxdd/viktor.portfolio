@@ -104,7 +104,15 @@ const PROJECTS: Project[] = [
       en: 'Design and development',
     },
     tech: ['TypeScript', 'React', 'Vite', 'CSS', 'Claude Code'],
-    images: [],
+    images: [
+      {
+        src: '/images/portfolio-hero.png',
+        alt: {
+          sv: 'Portfoliots startsida med ett kodblock, statusen "looking for work" och menyn',
+          en: 'The portfolio start page with a code block, the status "looking for work" and the menu',
+        },
+      },
+    ],
     repoUrl: 'https://github.com/Viktorxdd/viktor.portfolio',
     isPrivate: false,
     date: '2026-10',
