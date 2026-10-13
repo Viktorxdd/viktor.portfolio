@@ -31,7 +31,7 @@ function ProjectsPage() {
             {project.images[0] ? (
               <img
                 className={styles.image}
-                src={project.images[0].src}
+                src={project.thumbnail ?? project.images[0].src}
                 alt={project.images[0].alt}
                 loading="lazy"
               />

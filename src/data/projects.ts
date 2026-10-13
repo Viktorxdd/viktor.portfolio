@@ -74,6 +74,7 @@ const PROJECTS: Project[] = [
         },
       },
     ],
+    thumbnail: '/images/yokoten-home-thumb.jpg',
     isPrivate: true,
     date: '2026-08',
     featured: true,

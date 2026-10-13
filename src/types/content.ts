@@ -10,6 +10,7 @@ export type Project = {
   role?: Localized<string>
   tech: string[]
   images: { src: string; alt: Localized<string> }[]
+  thumbnail?: string // cropped version of the first image for the project list
   repoUrl?: string
   liveUrl?: string
   isPrivate: boolean
